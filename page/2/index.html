@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -152,124 +152,12 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-MVC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Tomcat" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="MVC-开发模式"><a href="#MVC-开发模式" class="headerlink" title="MVC:开发模式"></a>MVC:开发模式</h2><pre><code>MVC:
-    1.M：model。模型 JavaBean
-        *完成具体的业务操作  如：查询数据库，封装对象
-    2.V：view，视图。JSP
-        *展示数据
-    3.C：Controller，控制器。Servlet
-        *获取用户的输入
-        *调用模型
-        *将数据交给视图展示
-    *优缺点：
-        1.优点：
-            1.耦合性低，方便维护，利于分工合作
-            2.重用性高
-        2.缺点：
-            使项目架构变得复杂，对开发人员要求高       </code></pre>
-<h2 id="EL-表达式"><a href="#EL-表达式" class="headerlink" title="EL 表达式"></a>EL 表达式</h2><pre><code>1.概念：EXpression Language 表达式语言
-2.作用：替换和简化jsp页面中java代码的编写
-3.语法：$&#123;表达式&#125;
-4.注意：
-    *jsp默认支持el表达式  如果要忽略el表达式
-        1.设置jsp中page指令中：isELIgnored=&quot;true&quot;  忽略当前jsp页面中所有的el表达式
-        2.\$&#123;表达式&#125;：忽略当前这个el表达式
-5.使用：
-    1.运算
-        *运算符：
-            1.算数运算符： + - * /(div) %(mod)
-            2.比较运算符： &gt; &lt; &gt;= &lt;= !=
-            3.逻辑运算符： &amp;&amp;(and) ||(or) !(not)
-            4.空运算符：empty
-                *功能：用于判断字符串、集合、数组对象是否为null 或者 长度是否为0
-                *$&#123;empty list&#125;：表示判断字符串、集合、数组对象是否为null 或者 长度是否为0
-                *$&#123;not empty list&#125;：表示判断字符串、集合、数组对象是否不为null 并且 长度大于0
-    2.获取值  
-        1.语法：
-            1.$&#123;域名称.键名&#125;：从指定域中获取指定键的值
-                *域名称：
-                    1.pageScope         --&gt; pageContext
-                    2.requestScope      --&gt; request
-                    3.sessionScope      --&gt; session
-                    4.applicationScope  --&gt; application(ServletContext) 
-            2.$&#123;键名&#125;：表示依次从最小的域中查找是否有该键对应的值，直到找到为止
-    3.获取对象、List集合、Map集合的值
-        1.对象：$&#123;域名称.键名.属性名&#125;  调用对象的getter方法
-        2.List集合：$&#123;域名称.键名[索引]&#125;
-        3.Map集合：
-            $&#123;域名称.键名.key名&#125;                                       
-            $&#123;域名称.键名[&quot;key名&quot;]&#125;
-    4.隐式对象：
-        * el表达式中有11个隐式对象
-        * pageContext：
-            *获取jsp其他八个内置对象
-                *$&#123;pageContext.request.contextpath&#125;：动态获取虚拟目录  </code></pre>
-<h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h2><pre><code>1.概念：JavaServer Pages Tag Library JSP标准标签库 
-    *Apache组织提供的开源的免费的jsp标签
-2.作用：用于简化和替换jsp页面上的java代码
-3.使用步骤：
-    1.导入jstl相关jar包
-    2.引入标签库：taglib指令 &lt;%@ taglib%&gt;                            
-    3.使用标签
-4.常用jstl标签
-    1. if   ：相当于java代码的if语句
-        属性：
-            test 必须属性，接收Boolean表达式
-                如果为true，则显示if标签体内容，如果为false，则不显示标签体内容
-
-                *test属性值会结合el表达式一起使用
-                c:if标签没有else情况，想要else情况，需要另外定义一个c:if标签
-    2. choose   ：相当于switch语句
-        1.choose标签取出数字    相当于switch声明
-        2.when标签做数字判断     相当于case
-        3.otherwise标签做其他情况声明    相当于default
-    3.foreach   ：相当于for循环 
-        1.完成重复的操作
-            *属性：
-                begin：开始值
-                end：结束值
-                var：临时变量
-                step：步长  1 相当于 i++  2  i += 2
-                varStatus：循环状态对象
-                    index：容器中元素的索引，从0开始
-                    count：循环次数，从1开始
-        2.遍历容器
-            *属性
-                items：容器对象
-                var：容器中元素的临时变量
-                varStatus：循环状态对象
-                    index：容器中元素的索引，从0开始
-                    count：循环次数，从1开始           </code></pre>
-<h2 id="三层架构：软件设计架构"><a href="#三层架构：软件设计架构" class="headerlink" title="三层架构：软件设计架构"></a>三层架构：软件设计架构</h2><pre><code>1.界面层（表示层）：用户看的界面。用户可以通过界面上的组件和服务器进行交互  接收用户参数，封装数据，调用业务逻辑层完成处理，转发jsp页面完成显示
-2.业务逻辑层：处理业务逻辑的     组合DAO层中的简单方法，形成复杂得多功能（业务逻辑操作）
-3.数据访问层：操作数据存储文件    定义了对于数据库最基本的CRUD操作        </code></pre>
-<h2 id="案例-用户信息列表展示"><a href="#案例-用户信息列表展示" class="headerlink" title="案例 用户信息列表展示"></a>案例 用户信息列表展示</h2><pre><code>1.需求：用户信息的增删改查操作
-2.设计：
-    1.技术选型：Servlet+JSP+MySQL+JDBCTemplate+Durid+BeanUtils+Tomcat
-    2.数据库设计：
-        create database mvcTest;    -- 创建数据库
-        use mvcTest;                -- 使用数据库
-        create table user(          -- 创建表
-            id int primary key auto_increment,  -- 编号
-            name varchar(20) not null,          -- 姓名
-            gender varchar(5),                  -- 性别
-            age int,                            -- 年龄
-            address varchar(32),                -- 地址
-            qq varchar(20),                     -- QQ
-            email varchar(50)                   -- 邮箱
-        );
-3.开发
-    1.环境搭建
-        1.创建数据库环境
-        2.创建项目，导入需要的jar包
-    2.编码
-4.测试
-5.部署运维                </code></pre>
+        <p>##配置：<br>    *部署项目的方式：<br>        1.直接将项目放到webapps目录下<br>            *可以将项目打成一个war包放在webapps目录下，自动解压<br>        2.配置conf/server.xml文件<br>            在<Host>标签体中配置<br>            <Context docBase="项目的存放的路径" path="虚拟目录"><br>        3.在conf\Catalina\localhost创建任意名称的xml文件。在文件中配置<br>            <Context docBase="项目存放的路径"><br>            *虚拟目录：xml文件的名称<br>    *静态项目和动态项目：<br>        *目录结构<br>            *java动态项目的目录结构：<br>                –项目的根目录<br>                    –WEB-INF目录：<br>                        –web.xmlweb项目的核心配置文件<br>                        –classes目录：放置字节码文件的目录<br>                        –lib目录：放置依赖的jar包        </p>
 
       
 
@@ -282,7 +170,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/MVC/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/03/Tomcat/">展开全文 >></a>
         </p>
       
 
@@ -312,892 +200,299 @@
 
 
   
-    <article id="post-maven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-springMVC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h1><pre><code>1.项目管理工具，主要作用为项目开发阶段对Java项目进行依赖管理和项目构建
-    依赖管理：对jar包的管理，通过导入maven坐标，相当于将仓库中的jar包导入了当前项目中
-    项目构建：通过maven的一个命令完成项目从清理、编译、测试、报告、打包，部署这个过程
-    清理-&gt;编译-&gt;测试-&gt;报告-&gt;打包-&gt;部署
-2.仓库类型
-    1.本地仓库
-    2.远程仓库
-        1.maven中央仓库 http://repo2.maven.org/maven2/
-        2.maven私服（公司局域网内仓库，自己搭建）
-        3.其他公共远程仓库 （Apache：http://repo.maven.org/maven2/）
-3.maven常用命令
-    clean：清理
-    compile：编译
-    test：测试
-    package：打包
-    install：安装
-4.maven依赖范围
-    依赖范围                    对于编译classpath有效        对于测试classpath有效        对于运行时classpath有效
-    compile                        Y                            Y                        Y    
-    test                        -                            Y                        -
-    provided                    Y                            Y                        -
-    runtime                        -                            Y                        Y
-    system                        Y                            Y                        -
+        <p>#SpringMVC<br>    SpringMVC是一种基于java地实现MVC设计模型的请求驱动类型轻量级web框架，属于SpringFrameWork的后续产品。<br>    通过一套注解，让java类成为处理请求的控制器，无需实现任何借口。还支持RESTful编程风格的请求</p>
+<pre><code>开发步骤：
+    1.导入springMVC相关坐标(pom.xml中导入spring-webmvc坐标)
+    2.配置servlet（web.xml中配置springMVC核心控制器DispatcherServlet）
+    3.编写Controller（POJO 简单的javaBean）和视图页面
+    4.将Controller使用注解配置到Spring容器中(@Controller)
+    5.配置spring-mvc.xml文件（配置组件扫描）
+    6.执行访问测试</code></pre>
+<h2 id="Spring集成web环境"><a href="#Spring集成web环境" class="headerlink" title="Spring集成web环境"></a>Spring集成web环境</h2><pre><code>ApplicationContext应用上下文获取方式
+       应用上下文对象是通过new ClasspathXmlApplicationContext(Spring配置文件)方式获取的，
+    但是每次从容器中获得Bean时都要编写new ClasspathXmlApplicationContext(Spring配置文件)，这样的弊端是配置文件加载多次，
+    应用上下文对象创建多次，影响效率
+       在web项目中，可以使用ServletContextListener监听web应用的启动，在启动时，就加载spring配置文件，创建应用上下文对象
+    ApplicationContext，将其存储在最大的域ServletContext域中，可以在任意位置从域中获取应用上下文ApplicationContext对象   
 
-5.依赖冲突
-    依赖传递版本不同造成依赖冲突。
-    *解决依赖冲突：
-        1.使用maven提供的依赖调解原则
-            第一声明者优先原则
-                pom文件定义依赖，以先声明的依赖为准。根据坐标导入的顺序来确定最终使用哪个传递过来的依赖
-            路径近者优先原则
-                pom文件定义依赖，以路径近者为准
-                pom文件中直接定义的依赖优先于传递过来的依赖
-        2.排除依赖
-            使用exclusions标签将传递过来的依赖排除出去
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
-                &lt;version&gt;5.0.5.RELEASE&lt;/version&gt;
-                指定不需要的依赖
+spring提供获取应用上下文的工具
+    Spring提供了监听器ContextLoaderListener，内部配置加载Spring配置文件，创建应用上下文对象，并存储到ServletContext域中
+    提供客户端工具WebApplicationContextUtils获取上下文对象
 
-                &lt;exclusions&gt;
-                    &lt;exclusion&gt;
-                        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-                        &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
-                    &lt;/exclusion&gt;
-                &lt;/exclusions&gt;
-            &lt;/dependency&gt;
-        3.锁定版本    
-            采用直接锁定版本的方法确定依赖jar包的版本，版本锁定后不考虑依赖的生命顺序或依赖的路径，以锁定的版本为准添加
-            到工程中。    
-            使用方式：
-                1.在dependencyManagement标签中锁定依赖的版本
-                        &lt;dependencyManagement&gt;
-                            &lt;dependencies&gt;
-                                &lt;dependency&gt;
-                                    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-                                    &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
-                                    &lt;version&gt;5.0.5.RELEASE&lt;/version&gt;
-                                &lt;/dependency&gt;
-                                &lt;dependency&gt;
-                                    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-                                    &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
-                                    &lt;version&gt;5.0.5.RELEASE&lt;/version&gt;
-                                &lt;/dependency&gt;
-                            &lt;/dependencies&gt;
-                        &lt;/dependencyManagement&gt;
-                    *pom文件中使用dependencyManagement标签进行依赖jar的版本锁定，不会真正将jar包导入到项目中，
-                    只是对jar的版本锁定，项目中使用的jar包还需要在dependencies标签中声明
-                2.在dependencies标签中声明需要导入的maven坐标
-                    *jar包版本已经锁定不需要再指定version，只需要导入groupID和artifactID
-                    &lt;dependencies&gt;
-                        &lt;dependency&gt;
-                            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-                            &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;                               
-                        &lt;/dependency&gt;
-                        &lt;dependency&gt;
-                            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-                            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
-                        &lt;/dependency&gt;
-                    &lt;/dependencies&gt;</code></pre>
-<h2 id="maven构建SSM工程案例"><a href="#maven构建SSM工程案例" class="headerlink" title="maven构建SSM工程案例"></a>maven构建SSM工程案例</h2><pre><code>1.配置数据库环境
-2.maven项目构建
-    1.创建maven web项目
-        选择创建web项目时添加archetypeCatalog  value：internal加快项目创建速度
-    2.配置pom.xml文件
-    3.实现spring+mybatis整合
-        创建pojo类
-        持久层DAO接口编写
-        业务层Service编写
-        spring配置文件ApplicationContext-dao.xml编写
-        spring配置文件ApplicationContext-service.xml编写        
-    4.spring-mvc配置    
-        表现出controller编写
-        springmvc.xml编写
-            1.组件扫描2.视图解析器
-        jsp页面编写
-        配置web.xml文件
-            1.初始化配置文件2.前端控制器3.spring监听</code></pre>
-<h2 id="分模块构建maven工程分析"><a href="#分模块构建maven工程分析" class="headerlink" title="分模块构建maven工程分析"></a>分模块构建maven工程分析</h2><pre><code>拆分方式：
-    1.按照 业务模块 进行拆分，每个模块拆分成一个maven工程；如：用户模块、订单模块、购物车模块
-    2.按照 层 进行拆分。如持久层、业务层、表现层
+    使用：
+        1.在web.xml中配置ContextLoaderListener监听器（pom.xml中导入spring-web坐标） 
+            &lt;!--全局初始化参数--&gt;   
+            &lt;context-param&gt;
+                &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+                &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+            &lt;/context-param&gt;                
+        2.使用WebApplicationContextUtils获取上下文对象ApplicationContext</code></pre>
+<h2 id="SpringMVC的执行流程"><a href="#SpringMVC的执行流程" class="headerlink" title="SpringMVC的执行流程"></a>SpringMVC的执行流程</h2><pre><code>1.用户发送请求到前端控制器DispatcherServlet
+2.DispatcherServlet收到请求调用HandlerMapping处理器映射器。
+3.处理器映射器找到具体的处理器（可以根据xml配置、注解进行查找），生成处理器对象以及处理器拦截器（如果有就生成），</code></pre>
+<p> 并返回给DispatcherServlet<br>    4.DispatcherServlet调用HandlerAdapter处理器适配器<br>    5.HandlerAdapter经过适配调用具体的处理器（Controller后端控制器）<br>    6.Controller执行完成返回ModelAndView<br>    7.HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet<br>    8.DispatcherServlet将ModelAndView传给ViewResolver视图解析器<br>    9.ViewResolver解析后返回具体view<br>    10.DispatcherServlet根据View进行渲染视图（将模型数据填充到视图中）。DispatcherServlet响应用户。</p>
+<h2 id="SpringMVC注解解析"><a href="#SpringMVC注解解析" class="headerlink" title="SpringMVC注解解析"></a>SpringMVC注解解析</h2><pre><code>@RequestMapping（请求映射）
+作用：用于建立请求URL和处理请求方法之间的对应关系    
+位置：
+    类上：请求URL的第一级访问目录。如果不写，相当于应用的根目录
+    方法上：请求URL的第二级访问目录，与类上使用@RequestMapping标注的一级目录一起组成访问虚拟路径
+属性：
+    value：用于指定请求的URL。与path属性作用相同
+    method：用于指定请求的方式
+    params：用于指定限制请求参数的条件。支持简单的表达式。要求请求参数的key和value必须和配置一样
+        params=&#123;&quot;user&quot;&#125;请求参数必须有user
+        params=&#123;&quot;money!100&quot;&#125;请求参数中money不能为100  
 
-maven工程的继承
-    子工程继承父工程之后，可以使用在父工程引入的依赖，目的是为例消除重复代码。
-    父工程的打包方式必须为pom 子工程通过parent标签进行父工程的继承
+@ResponseBody   
+告知springMVC框架 该方法返回值不进行页面跳转 直接响应数据</code></pre>
+<h2 id="xml配置解析"><a href="#xml配置解析" class="headerlink" title="xml配置解析"></a>xml配置解析</h2><pre><code>配置组件扫描
+    &lt;context:compont-scan base-package=&quot;com.xxx.xxx&quot;/&gt;或者
+    &lt;context:compont-scan base-package=&quot;com.xxx.xxx&quot;&gt;
+        &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;注解的全限定名&quot;/&gt;只扫描包含包下的某个注解
+        &lt;context:exclude-filter type=&quot;annotation&quot; expression=&quot;注解的全限定名&quot;/&gt;只扫描除了包下的某个注解
+    &lt;/context:compont-scan&gt;    
 
-maven工程的聚合
-    使用&lt;modules&gt;标签将其他maven工程聚合到一起，进行统一操作
-    &lt;modules&gt;
-        &lt;module&gt;
-        &lt;module&gt;
-    &lt;modules&gt;</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/maven/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-json" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><pre><code>1.概念: JavaScript object notation    JavaScript对象表示法
-    json多用于存储和交换文本信息的语法
-    进行数据传输
-    json比xml更小、更快，更容易解析
-
-2.语法：
-    1.基本规则:
-        *数据在名称/值对中:json数据是由键值对构成的
-            *键 用引号引起来，也可以不使用
-            *值的取值类型:
-                1.数字(整数或浮点数)
-                2.字符串(在双引号中) 
-                3.逻辑值(true或false)
-                4.数组(在方括号中)
-                5.对象(在花括号中)
-                6.null
-            *数据由逗号分隔:多个键值对由逗号分隔
-            *花括号保存对象:使用&#123;&#125;定义 json格式
-            *方括号保存数组:[]    
-    2.获取数据: 
-        json对象.键名
-        json对象.[&quot;键名&quot;]   
-
-        遍历：
-            for(key in json对象)&#123;
-                //获取值 
-                json对象[key];
+SpringMVC中有默认配置，默认组件在DispatcherServlet.properties配置文件中配置。            
+配置内部资源视图解析器     ViewResolver
+默认配置文件中的默认设置
+    REDIRECT_URL_PREFIX=&quot;redirect:&quot; --重定向前缀
+    FORWARD_URL_PREFIX=&quot;forward:&quot; --转发前缀
+    prefix=&quot;&quot;; --视图名称默认前缀
+    suffix=&quot;&quot;; --视图名称默认后缀
+&lt;bean id=&quot;&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+    //  /jsp/ + success + .jsp  前缀+返回值+后缀
+    &lt;property name=&quot;prefix&quot; value=&quot;&quot;&gt;&lt;/property&gt;//前缀
+    &lt;property name=&quot;suffix&quot; value=&quot;&quot;&gt;&lt;/property&gt;//后缀
+&lt;/bean&gt;        </code></pre>
+<h2 id="知识要点"><a href="#知识要点" class="headerlink" title="知识要点"></a>知识要点</h2><pre><code>SpringMVC的相关组件
+    前端控制器：DispatcherServlet     负责调用其他功能组件
+    处理器映射器：HandlerMapping       地址解析返回对应的执行链
+    处理器适配器：HandlerAdapter       被前端控制器调用执行处理器
+    处理器：Handler
+    视图解析器：ViewResolver          将View解析出来
+    视图：View
+SpringMVC的注解和配置
+    请求映射注解：@RequestMapping
+    视图解析器配置：
+        REDIRECT_URL_PREFIX=&quot;redirect&quot;;        
+        FORWARD_URL_PREFIX=&quot;forward&quot;;
+        prefix=&quot;&quot;;
+        suffix=&quot;&quot;;</code></pre>
+<h2 id="SpringMVC数据响应"><a href="#SpringMVC数据响应" class="headerlink" title="SpringMVC数据响应"></a>SpringMVC数据响应</h2><pre><code>方式：
+    1.页面跳转
+        *直接返回字符串：字符串与视图解析器的前后缀拼接后跳转
+            @RequestMapping(&quot;/quick&quot;) produces=&quot;text/html;charset=UTF-8&quot; produces属性可以设置响应数据编码
+            public String save()&#123;
+                System.out.println(&quot;userController save running...&quot;);
+                return &quot;success&quot;;
             &#125;
-
-    3.json对象转换
-        json解析器：
-            常见：jsonlib，Gson，fastjson，Jackson
-        1.json转java对象
-            readValue(json字符串数据,Class)
-        2.java对象转json        
-            1.使用步骤：
-                1.导入Jackson的相关jar包
-                2.创建Jackson核心对象 ObjectMapper
-                3.调用ObjectMapper的相关方法进行转换
-                    1.转换方法：
-                        *writeValue(参数1,,obj)
-                            参数1：
-                                File:将obj对象转换为json字符串，并保存到指定的文件中
-                                Writer:将obj对象转换为json字符串，并将json数据填充到字符输出流中
-                                OutputStream:将obj对象转换为json字符串，并将json数据填充到字节输出流中
-                        *writeValueString(obj):将对象转为json字符串  
-
-                    2.注解:
-                        1.@JsonIgnore:排除属性
-                        2.@JsonFormat:属性值格式化  
-
-                    3.复杂java对象转换
-                        1.list: []数组
-                        2.Map: 对象格式    
-
-
-        服务端返回的数据，在客户端想要当做json数据格式使用
-            1.$.get():type参数设为json
-            2.在服务器端设置MIME类型
-                response.setContentType(&quot;application/json;charset=utf-8&quot;);                        </code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/json/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jQuery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##选择器<br>    1.基本语法<br>        1.事件绑定<br>            $().事件(function(){});<br>        2.入口函数<br>            $(function(){</p>
-<pre><code>        &#125;);
-        window.onload  和 $(function())区别
-            window.onload 只能定义一次，如果定义多次，会被后面的覆盖
-            $(function()) 可以定义多次
-    3.样式控制：css方法
-        $().css(&quot;属性名&quot;,&quot;属性值&quot;);
-
-2.分类
-    1.基本选择器
-        1.标签选择器（元素选择器）
-            * 语法: $(&quot;html标签名&quot;)获得所有匹配标签名称的元素
-        2.id选择器
-            * 语法: $(&quot;#id的属性值&quot;)获得与指定id属性值匹配的元素
-        3.类选择器
-            * 语法: $(&quot;.class的属性值&quot;)获得与指定的class属性值匹配的元素
-        4.并集选择器
-            * 语法: $(&quot;选择器1,选择器2,.....&quot;)获取多个选择器选中的所有元素
-
-
-    2.层级选择器
-        1.后代选择器
-            * 语法: $(&quot;A B&quot;)选择A元素内部的所有B元素
-        2.子选择器
-            * 语法: $(&quot;A &gt; B&quot;)选择A元素内部的所有B子元素
-
-
-    3.属性选择器
-        1.属性名称选择器
-            * 语法: $(&quot;A[属性名]&quot;)包含指定属性的选择器
-        2.属性选择器
-            * 语法: $(&quot;A[属性名 = &#39;值&#39;]&quot;)包含指定属性等于指定值的选择器
-            * 语法: $(&quot;A[属性名 != &#39;值&#39;]&quot;)不包含指定属性等于指定值的选择器
-            * 语法: $(&quot;A[属性名 ^= &#39;xx&#39;]&quot;)以xx开始的属性值的选择器
-                              $= &#39;xx&#39; 以xx结束
-                              *= &#39;xx&#39; 包含xx的属性值的选择器 
-        3.复合属性选择器
-            * 语法: $(&quot;A[属性名 = &#39;值&#39;][]...&quot;)包含多个属性条件的选择器
-
-
-    4.过滤选择器
-        1.首元素选择器
-            * 语法: :first 获得选择的元素中的第一个元素
-        2.尾元素选择器
-            * 语法: :last 获得选择的元素中的最后一个元素
-        3.非元素选择器
-            * 语法: :not(selecter)不包括指定内容的元素       
-        4.偶数选择器
-            * 语法: :even 偶数，从0开始计数
-        5.奇数选择器
-            * 语法: :odd 奇数，从0开始计数
-        6.等于索引选择器
-            * 语法: :eq(index)指定索引元素
-        7.大于索引选择器
-            * 语法: :gt(index)大于指定元素索引
-        8.小于索引选择器
-            * 语法: :lt(index)小于指定元素索引
-        9.标题选择器
-            * 语法: :header 获得标题元素，固定写法
-
-
-    5.表单过滤选择器
-        1.可用元素选择器
-            * 语法: :enabled 获得可用元素
-        2.不可用元素选择器
-            * 语法: :disabled 获得不可用元素
-        3.选中选择器
-            * 语法: :checked 获取单选/复选框选中的元素
-        4.选中选择器                     
-            * 语法: :selected 获得下拉框选中的元素
-            需要选中option</code></pre>
-<p>##dom操作<br>    1.内容操作<br>        1. html():获取/设置元素的标签体内容     <a><font>内容</font></a> –&gt; <font>内容</font><br>        2. text():获取/设置元素的标签体纯文本内容<a><font>内容</font></a> –&gt; 内容<br>        3. val(): 获取/设置元素的value属性值</p>
-<pre><code>2.属性操作
-    1.通用属性操作
-        1. attr():获取/设置元素的属性
-        2. removeAttr():删除属性
-        3. prop():获取/设置元素的属性
-        4. removeProp():删除属性
-
-        *attr 和 prop 的区别
-            1.如果操作的是元素的固有属性，建议使用 prop
-            2.若果操作的是元素自定义的属性，建议使用 attr
-
-    2.对class属性操作
-        1. addClass():添加class属性值
-        2. removeClass():删除class属性值
-        3. toggleClass():切换class属性
-            *toggleClass(&quot;one&quot;):
-                判断如果元素对象上存在class=&quot;one&quot;，则将属性值one删除掉
-                如果元素对象上不存在，则添加
-        4. css()
-3.CURD操作     
-    1.append():父元素将子元素追加到末尾
-        * 对象1.append(对象2):将对象2添加到对象1元素内部，并且在末尾
-    2.prepend():父元素将子元素追加到开头
-        * 对象1.append(对象2):将对象2添加到对象1元素内部，并且在开头
-    3.appendTo():
-        * 对象1.append(对象2):将对象1添加到对象2元素内部，并且在末尾
-    4.prependTo():
-        * 对象1.append(对象2):将对象2添加到对象1元素内部，并且在开头
-
-    5.after():添加元素到后面
-        * 对象1.append(对象2):将对象2添加到对象1元素后面，对象1和对象2是兄弟关系
-    6.before():添加元素到前面
-        * 对象1.append(对象2):将对象2添加到对象1元素前面，对象1和对象2是兄弟关系
-    7.insertAfter():
-        * 对象1.append(对象2):将对象1添加到对象2元素后面，对象1和对象2是兄弟关系
-    8.insertBefore():
-        * 对象1.append(对象2):将对象1添加到对象2元素前面，对象1和对象2是兄弟关系
-
-    9.remove():移除元素
-        *对象.remove():将对象删除掉
-    10.empty():       
-        *对象.empty():将对象的后代元素全部清空，但是保留当前对象以及其属性节点  </code></pre>
-<h2 id="jQuery-高级"><a href="#jQuery-高级" class="headerlink" title="jQuery 高级"></a>jQuery 高级</h2><pre><code>1.动画 
-    1.三种方式显示和隐藏元素
-        1.默认显示和隐藏方式
-            1.show([speed],[easing],[fn])                
-            2.hide([speed],[easing],[fn])
-            3.toggle([speed],[easing],[fn])
-
-            参数：
-                1.speed：动画的速度。三个预定义的值(&quot;slow&quot;,&quot;normal&quot;,&quot;fast&quot;)或使用表示动画时长的毫秒数值
-                2.easing：指定切换效果，默认是swing，可用参数linear
-                    *swing：动画执行时效果是 慢-&gt;快-&gt;慢
-                    *linear：匀速
-                3.fn：在动画完成时执行的函数，每个元素执行一次    
-
-        2.滑动显示和隐藏方式
-            1.slideDown([speed],[easing],[fn])    
-            2.slideUp([speed],[easing],[fn])
-            3.slideToggle([speed],[easing],[fn])
-
-        3.淡入淡出显示和隐藏方式
-            1.fadeIn([speed],[easing],[fn])    
-            2.fadeOut([speed],[easing],[fn])
-            3.fadeToggle([speed],[easing],[fn])
-
-2.遍历
-    1. js的遍历方式
-        * for(初始化值;循环结束条件;步长)
-    2. jq的遍历方式
-        1. jq对象.each(callback)
-            1. 语法：
-                jquery对象.each(function(index,element)&#123;&#125;);
-                    * index:就是元素在集合中的索引
-                    * element：就是集合中的每一个元素对象
-
-                    * this：集合中的每一个元素对象
-            2. 回调函数返回值：
-                    * true:如果当前function返回为false，则结束循环(break)。
-                    * false:如果当前function返回为true，则结束本次循环，继续下次循环(continue)
-        2. $.each(object, [callback])
-        3. for..of: jquery 3.0 版本之后提供的方式
-            for(元素对象 of 容器对象)   
-
-3.事件绑定
-    1.jQuery标准的绑定方式
-        jq对象.事件方法(回调函数);
-            如果调用事件方法，不传递回调函数，则会触发浏览器默认的行为
-                表单对象.submit();//表单提交                     
-    2.on绑定事件/off解除绑定
-        jq对象.on(&quot;事件名称&quot;,回调函数);    
-        jq对象.off(&quot;事件名称&quot;);
-            如果off方法不传递任何参数，会将组件上的所有事件全部解绑
-    3.事件切换：toggle
-        jq对象.toggle(fn1,fn2,...);   
-            当点击jq对象对应的组件后，汇之星fn1第二次会执行fn2...
-            1.9版本.toggle()方法删除，jQuery migrate（迁移）插件可以恢复
-
-4.插件：增强jQuery的功能
-    1.实现方式：
-        1.$.fn.extend(Object)
-            *增强通过jQuery获取的对象的功能
-        2.$.extend(object)
-            *增强jQuery对象自身的功能                </code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/jQuery/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jdbc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#jdbc<br>*本质：官方定义的一套操作所有关系型数据库的规则（接口），数据库厂商实现接口，提供数据库驱动jar包，可以使用这套接口编程，真正执行的代码是驱动jar包中的实现类<br>##步骤：<br>    1.导入jar包<br>    2.注册驱动<br>    3.获取数据库连接对象 Connection<br>    4.定义sql<br>    5.获取执行sql语句的对象 statement<br>    6.执行sql，接收返回的结果<br>    7.处理结果<br>    8.释放资源<br>##对象<br>    1.DriverManager：驱动管理对象<br>        1.注册驱动<br>        static void registerDriver(Driver driver);注册与给定的驱动程序 DriverManager<br>        直接使用反射：Class.forName(“com.mysql.jdbc.Driver”);<br>        不用操作，类中存在静态代码块<br>        2.获取数据库连接<br>        static Connection getConnection​(String url, String user, String password)<br>        *URL：指定连接的路径<br>            *jdbc:mysql://ip地址（域名）:端口号/数据库名称<br>            本机：jdbc:mysql:///数据库名称<br>        *user：用户名<br>        *password：密码<br>    2.Connection：数据库连接对象<br>        功能：<br>            1.获取执行SQL的对象<br>                *Statement createStatement()<br>                *PreparedStatement prepareStatement​(String sql) 创建一个 PreparedStatement对象，用于将参数化的SQL语句发送到数据库。<br>            2.管理事务<br>                *开启事务：void setAutoCommit​(boolean autoCommit) 将此连接的自动提交模式设置为给定状态。<br>                false：关闭自动提交<br>                *回滚事务：void rollback​() 撤消在当前事务中所做的所有更改，并释放此 Connection对象当前持有的任何数据库锁。<br>                *提交事务：void commit​() 使上次提交/回滚之后所做的所有更改都将永久性，并释放此 Connection对象当前持有的任何数据库锁。<br>    3.Statement：执行SQL的对象<br>        1.执行SQL<br>            1.boolean execute​(String sql) 执行给定的SQL语句，这可能会返回多个结果。<br>            2.int executeUpdate​(String sql)<br>            执行DML（insert、update、delete）语句、DDL（create、alter、drop）语句<br>            返回值：影响的行数，通过返回值判断DML语句是否执行成功。返回值&gt;0成功，反之，失败<br>            3.ResultSet executeQuery​(String sql) 执行给定的SQL（select）语句，返回一个 ResultSet对象。<br>    4.ResultSet：结果集对象，封装查询结果<br>        *next():游标向下移动一行<br>        *getxxx(参数):获取数据<br>            *参数：<br>                1.int：列的编号，从1开始<br>                2.String：列的名称<br>    5.PreparedStatement：执行SQL的对象<br>        1.SQL注入问题：<br>            1.随便输入用户，输入密码：a’ or ‘a’ = ‘a<br>            2.sql:select * from user where username = ‘xxx’ and password = ‘a’ or ‘a’ = ‘a’;<br>        2.解决SQL注入问题：使用preparedStatement对象<br>        3.预编译的SQL：参数使用？作为占位符<br>        4.步骤：<br>            1.导入jar包<br>            2.注册驱动<br>            3.获取数据库连接对象 Connection<br>            4.定义SQL<br>                *SQL的参数使用？作为占位符<br>                select * from user where username = ? and password = ?;<br>            5.获取执行SQL语句的对象 PreparedStatement Connection.prepareStatement(String sql);<br>            6.给？赋值：<br>                setxxx(参数1，参数2)<br>                参数1：？的位置编号 从1开始<br>                参数2：？的值<br>            7.执行SQL，接收结果，不用传参<br>            9.处理结果<br>            9.释放资源<br>    增删改也要使用preparedStatement<br> ##jdbc控制事务<br>    1.事务：一个包含多个步骤的业务操作 。如果这个业务操作被事务管理，则这些步骤要么同时成功，要么同时失败<br>    2.操作：<br>        1.开启事务<br>        2.提交事务<br>        3.回滚事务<br>    3.使用Connection对象管理事务<br>        *开启事务：setAutoCommit(Boolean autoCommit)：调用该方法参数为false开启事务<br>        *提交事务：commit()<br>        *回滚事务：rollback()<br>##数据库连接池<br>    *1.概念：一个容器（集合），存放数据库连接的容器<br>        当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，<br>        从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器<br>    *2.好处：<br>        1.节约资源<br>        2.用户访问高效<br>    *3.实现：<br>        1.标准接口：DataSource javax.sql包下<br>            1.方法：<br>                获取连接：getConnection()<br>                归还连接：Connection.close如果连接对象Connection对象是从连接池中获取的，直接调用close方法不会关闭连接，<br>                    而是归还连接<br>        2.数据库厂商实现<br>            1.c3p0：数据库连接池技术<br>            2.Druid：数据库连接池实现技术，阿里巴巴提供</p>
-<pre><code>*4.c3p0：数据库连接池技术   
-    *步骤：
-        1.导入jar包（两个）
-        2.定义配置文件：
-            *名称：c3p0.properties或者c3p0-config.xml
-            *路径：src目录下
-        3.创建核心对象：数据库连接池对象 ComboPooledDataSource
-        4.获取连接：getConnection
-*5.druid数据库连接池实现技术，阿里巴巴提供              
-    *步骤：
-        1.导入jar包
-        2.配置文件
-            *properties形式
-            *可以为任意名称，放在任意目录下
-        3.加载配置文件：
-            InputStream is = DruidDemo.class.getClassLoader().getResourceAsStream(&quot;druid.properties&quot;);
-        4.获取数据库连接池对象：工程类获取
-            DruidDataSourceFactory
-        5.获取连接 getConnection</code></pre>
-<p>##Spring JDBC<br>    * Spring框架对JDBC的简单封装。提供一个JdbcTemplate对象简化jdbc操作<br>    *步骤：<br>        1.导入jar包<br>        2.创建JDBCTemplate对象。依赖于数据源DataSource<br>            jdbcTemplate jt = new jdbcTemplate(DataSource ds);<br>        3.调用jdbcTemplate的方法完成CRUD的操作<br>            *update():执行DML语句。增删改<br>            *queryForMap():查询结果将结果集封装为map集合<br>                *查询的结果集长度只能是1<br>            *queryForList():查询结果将结果集封装为list集合<br>                *将每一条数据封装为一个map集合，再将map集合添加到list集合中<br>            *query():查询结果，将结果封装为JavaBean对象<br>                *query的删除：RowMapper<br>                    *使用BeanPropertyRowMapper实现类，完成数据到JavaBean的自动封装<br>                    *new BeanPropertyRowMapper&lt;类型&gt;(类型.class)<br>            *queryForObject():查询结果，将结果封装为对象<br>                *用于聚合函数查询</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/jdbc/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTTP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#HTTP<br>    *概念：Hyper Text Transfer Protocol 超文本传输协议<br>        *传输协议：定义了客户端和服务器端通信时，发送数据的格式<br>        *特点：<br>            1.基于TCP/IP的高级协议<br>            2.默认端口号：80<br>            3.基于请求/响应模型 ：一次请求对应一次响应<br>            4.无状态的：每次请求之间相互独立，不能交互数据<br>        *历史版本<br>            *1.0：每一次请求/响应都会建立新的连接<br>            *1.1：复用连接    </p>
-<pre><code>    *请求消息格式
-        1.请求行
-            请求方式 请求URL 请求协议/版本
-            GET /webDemo02/test.html HTTP/1.1
-            *请求方式：
-                *HTTP协议有7种请求方式，常用的有两种
-                    *GET:
-                        1.请求参数在请求行中，在URL后
-                            http://localhost:8080/webDemo02/test03?username=123
-                        2.请求的URL长度有限制
-                        3.不太安全
-                    *POST:
-                        1.请求参数在请求体中    
-                        2.请求的URL长度没有限制
-                        3.相对安全
-        2.请求头：浏览器告诉服务器一些信息
-            请求头名称：请求头值
-            *常见的请求头：
-                1.User-Agent:浏览器告诉服务器，访问的浏览器版本信息
-                    *可以在服务端获取信息，解决浏览器的兼容问题
-                2.Referer: http://localhost:8080/webDemo02/test.html
-                    *告诉服务器，从哪里来
-                        *作用：
-                            1.防盗链
-                            2.统计工作    
-        3.请求空行
-            空行：分割请求头和请求体
-        4.请求体（正文）
-            *封装POST请求消息的请求参数
-        GET:
-        请求行：
-        GET /webDemo02/test.html HTTP/1.1
-        请求头：
-        Host: localhost:8080
-        Connection: keep-alive
-        Cache-Control: max-age=0
-        Upgrade-Insecure-Requests: 1
-        浏览器版本信息：
-        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36
-        告诉服务器可以响应的信息格式：
-        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-        压缩格式：
-        Accept-Encoding: gzip, deflate, br
-        语言：
-        Accept-Language: zh-CN,zh;q=0.9  
-        Cookie: JSESSIONID=E5AA36AA14F761FCEEC7ED288687ED5C; Idea-302cddf2=459a5668-d8fb-4e9f-96e6-4d4bf698e83c
-        If-None-Match: W/&quot;275-1591371511896&quot;
-        If-Modified-Since: Fri, 05 Jun 2020 15:38:31 GMT
-        请求空行：
-
-        请求体：
-
-        POST:
-        请求行：
-        POST /webDemo02/test03 HTTP/1.1
-        请求头
-        Host: localhost:8080
-        Connection: keep-alive
-        Content-Length: 19
-        Cache-Control: max-age=0
-        Upgrade-Insecure-Requests: 1
-        Origin: http://localhost:8080
-        Content-Type: application/x-www-form-urlencoded
-        浏览器信息：
-        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36
-        可以接收的响应信息：
-        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-        Sec-Fetch-Site: same-origin
-        Sec-Fetch-Mode: navigate
-        Sec-Fetch-User: ?1
-        Sec-Fetch-Dest: document
-
-        Referer: http://localhost:8080/webDemo02/test.html
-        可以接收的压缩方式
-        Accept-Encoding: gzip, deflate, br
-        语言：
-        Accept-Language: zh-CN,zh;q=0.9
-        Cookie: JSESSIONID=E5AA36AA14F761FCEEC7ED288687ED5C; Idea-302cddf2=459a5668-d8fb-4e9f-96e6-4d4bf698e83c
-        请求空行：
-
-        请求体：
-        username=1632592919
-    *响应消息格式：服务器端发送给客户端的数据
-        *格式：
-            1.响应行
-                1.组成：协议/版本 响应状态码 状态码描述
-                2.响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态
-                    1.状态码都是3位数字
-                    2.分类：
-                        1. 1xx:服务器收到客户端消息，但没有接收完成，等待一段时间后，发送1xx多状态码
-                        2. 2xx:成功。 代表：200
-                        3. 3xx:重定向。 代表：302(重定向)，304(访问缓存)
-                        4. 4xx:客户端错误。 代表：404(请求路径没有对应的资源) 405(请求方式没有对应的doxxx方法)
-                        5. 5xx:服务器端错误。 代表：500(服务器内部出现异常)
-            2.响应头
-                1.格式：头名称: 值
-                2.常见响应头
-                    1.Content-Type:服务器告诉客户端本次响应体数据格式以及编码格式
-                    2.Content-disposition:服务器告诉客户端以什么格式打开响应体数据
-                        *值:
-                            *in-line:默认值，在当前页面内打开
-                            *attachment;filename=xxx:以附件形式打开响应体。（文件下载）
-            3.响应空行
-            4.响应体：传输的数据</code></pre>
-<p>##Request<br>    1.request对象和response对象的原理<br>        1.由服务器创建<br>        2.request对象是来获取请求消息，response对象是来设置响应消息<br>    2.request对象继承体系结构：<br>        ServletRequest – 接口<br>            |<br>        HTTPServletRequest –接口<br>            |<br>        org.apache.catalina.connector.RequestFacade 类<br>    3.request<br>        1.获取请求消息数据<br>            1.获取请求行数据<br>              *GET /webDemo02/test03?username=jing HTTP/1.1<br>              *方法：<br>                1.获取请求方式：get<br>                    *String getMethod()<br>               *2.获取虚拟目录：/webDemo02<br>                    *String getContextPath()<br>                3.获取Servlet路径：<br>                    *String getServletPath()<br>                4.获取get方式请求参数(请求行中参数)：name=jing<br>                    *String getQueryString<br>               *5.获取请求URI：/webDemo02/test03<br>                    *URI：统一资源标识符<br>                    *String getRequestURI()   /webDemo02/test03<br>                    *URL：统一资源定位符<br>                    *StringBuffer getRequestURL() :<a target="_blank" rel="noopener" href="http://localhost/webDemo02/test03">http://localhost/webDemo02/test03</a><br>                6.获取协议及版本：HTTP/1.1<br>                    *String getProtocol()<br>                7.获取客户机的ip地址：<br>                    *String getRemoteAddr()<br>            2.获取请求头数据<br>                *方法：<br>                    *String getHeader(String name):通过请求头的名称获取请求头的值<br>                    *Enumeration<String> getHeaderNames():获取所有请求头名称<br>            3.获取请求体数据<br>                *请求体：只有post请求方式，才有请求体，在请求体中封装了post请求的请求参数<br>                *步骤：<br>                    1.获取流对象<br>                        *BufferReader getReader():获取字符输入流。只能操作字符数据<br>                        *ServletInputStream getInputStream():获取字节输入流，操作所有类型<br>                    2.从流对象中拿到数据<br>        2.其他功能：<br>            1.获取请求参数（通用方式）<br>                1.String getParameter(String name):根据参数名称获取参数值<br>                2.String[] getParameterValues(String name):根据参数名称获取参数值的数组<br>                3.Enumeration<String> getParameterNames():获取所有请求的参数名称<br>                4.Map&lt;String,String[]&gt; getParameterMap():获取所有参数的map集合<br>                *中文乱码问题<br>                    *get方式：Tomcat 8 已经将get方式乱码问题解决<br>                    *post方式：（手动）<br>                        在获取参数前。设置request的编码request.getCharacterEncoding(“utf-8”);<br>            2.请求转发:一种在服务器内部的资源跳转方式<br>                1.步骤：<br>                    1.通过request对象获取请求转发器对象：<br>                        RequestDispatcher getRequestDispatcher(String path)<br>                    2.使用RequestDispatcher对象来进行转发：<br>                        forward(ServletRequest request, ServletResponse response)<br>                2.特点：<br>                    1.浏览器地址栏路径不变<br>                    2.只能转发到当前服务器内部资源中<br>                    3.转发是一次请求<br>            3.共享数据<br>                *域对象：一个有作用范围的对象，可以在范围内共享数据<br>                *request域：代表一次请求的范围，一般用于请求转发的多个资源中共享数据<br>                *方法：<br>                    1.void setAttribute(String name, Object obj):存储数据<br>                    2.Object getAttribute(String name):通过键获取值<br>                    3.void removeAttribute(String name):通过键移除键值对<br>            4.获取ServletContext：<br>                *ServletContext getServletContext()</p>
-<pre><code>BeanUtils工具类，简化数据封装
-    *用于封装javaBean
-        1.JavaBean：标准的java类
-            1.要求：
-                1.类必须被public修饰
-                2.必须提供空参的构造器
-                3.成员变量必须使用private修饰
-                4.提供公共setter和getter方法
-            2.功能：封装数据
-        2.概念：
-            成员变量
-            属性：setter和getter方法截取后的产物
-                getUsername() --&gt; Username --&gt; username
-        3.方法：
-            1.setProperty()
-            2.getProperty()
-            3.populate(Object obj, Map map):将map集合的键值对信息，封装到对应的JavaBean对象中                    </code></pre>
-<p>##Response<br>    *功能：设置响应消息<br>        1.设置响应行<br>            1.格式：HTTP/1.1 200 ok<br>            2.设置状态码：setStatus(int sc)<br>        2.设置响应头：setHeader(String name,String value)<br>        3.设置响应体：<br>            *使用步骤：<br>                1.获取输出流<br>                    *字符输出流：PrintWriter getWriter()<br>                    *字节输出流：ServletOutputStream getOutputStream()<br>                2.使用输出流，将数据输出到客户端浏览器<br>    *案例：<br>        1.重定向：资源跳转的方式<br>            1.设置状态码：setStatus(302);<br>            2.设置响应头location：setHeader(“location”, “/webDemo02/responseDemo02”);</p>
-<pre><code>        简单重定向方法：
-            response.sendRedirect(&quot;/webDemo02/responseDemo02&quot;);                
-        *重定向的特点
-            1.地址栏发生变化
-            2.重定向可以访问其他站点（服务器）的资源
-            3.重定向是两次请求，不可以使用request对象来共享数据
-        *转发的特点：
-            1.转发地址栏路径不变
-            2.转发只能访问当前服务器资源下的资源
-            3.转发是一次请求，可以使用request对象来共享数据 getRequestDispatcher(String path);       
-        *路径写法：
-            1.路径分类
-                1.相对路径：通过相对路径不可以确定唯一资源
-                    *不以/开头，以.开头路径
-                    *规则：找到当前资源和目标资源之间的相对位置关系
-                        *./：当前目录
-                        *../：后退一级目录
-                2.绝对路径：通过绝对路径可以确定唯一资源
-                    *以/开头的路径
-                    *规则：判断定义的路径是给谁用的
-                        *客户端浏览器：需要加虚拟目录（项目的访问路径）
-                            *虚拟目录使用动态获取：request.getContextPath();
-                        *服务器：不需要加虚拟目录 *转发路径
-    2.服务器输出字符数据到浏览器
-        *步骤：
-            1.获取字符输出流
-            2.输出数据
-        *注意：
-            *乱码问题：
-                1.PrintWriter pw = response.getWriter();获取的流默认编码是ISO-8859-1
-                2.设置该流的默认编码
-                3.告诉浏览器响应体使用的编码    
-                response.setContentType(&quot;text/html;charset=utf-8&quot;);
-    2.服务器输出字节数据到浏览器
-        *步骤：
-            1.获取字节输出流
-            2.输出数据                           
-    3.验证码
-        1.本质：图片
-        2.目的：防止恶意表单注册</code></pre>
-<h2 id="ServletContext对象"><a href="#ServletContext对象" class="headerlink" title="ServletContext对象"></a>ServletContext对象</h2><pre><code>1.概念：代表整个web应用，可以和程序的容器（服务器）通信
-2.获取：
-    1.通过request对象获取
-        request.getServletContext();
-    2.通过HTTPServlet获取
-        this.getServletContext();    
-3.功能：
-    1.获取MIME类型：互联网通信过程中定义的一种文件数据类型
-        *格式： 大类型/小类型 text/html image/jpeg
-        *获取： String getMimeType(String file)
-    2.域对象：共享数据
-        1.setAttribute(String name, object value)
-        2.getAttribute(String name)
-        3.removeAttribute(String name)
-
-        *ServletContext对象范围：所有用户所有请求的数据
-    3.获取文件的真实(服务器)路径
-        方法：String getRealPath(String path)
-        web目录下资源访问 /文件名称
-        WEB-INF目录下的资源访问 /WEB-INF/文件名称
-        src目录下资源名称 /WEB-INF/classes/文件名称</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/HTTP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Filter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Filter-过滤器"><a href="#Filter-过滤器" class="headerlink" title="Filter 过滤器"></a>Filter 过滤器</h2><pre><code>访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特殊的功能。
-
-作用：
-    一般用于完成通用的操作；登录验证、统一编码的处理、敏感字符过滤
-
+            &lt;bean id=&quot;q&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+                &lt;property name=&quot;prefix&quot; value=&quot;/&quot;/&gt;
+                &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
+            &lt;/bean&gt;
+            转发资源地址：/success.jsp
+            重定向：redirect:/success.jsp
+
+        *通过ModeAndView对象返回
+            Model:模型 作用：封装数据
+            View:视图  作用：展示数据
+            返回ModelAndView对象
+                setViewName设置视图
+                addObject设置模型数据
+            几种方式：
+                1.new ModelAndView对象存储视图和模型数据并返回对象
+                2.ModelAndView写到参数中SpringMVC自动注入，设置视图和模型数据返回对象
+                3.使用Model对象存储数据，直接返回字符串视图    
+                4.使用HttpServletRequest对象存储数据，直接返回字符串视图    
+    2.回写数据
+        直接返回字符串
+            *通过SpringMVC框架注入response对象，使用response.getWriter().print()回写数据，不需要视图跳转，业务方法
+            返回值为void。
+            *将需要回写的字符串直接返回，使用@ResponseBody注解告知SpringMVC框架，方法返回的字符串不进行页面跳转，直接在
+            http响应体中返回
+        返回对象或集合    
+            通过SpringMVC对对象或集合进行json字符串的转换回写，需要配置处理器适配器，进行转换，指定Jackson进行对象或集合的转换
+                &lt;!--配置处理器适配器--&gt;
+                &lt;bean class=&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter&quot;&gt;
+                    &lt;property name=&quot;messageConverters&quot;&gt;
+                        &lt;list&gt;
+                            &lt;bean class=&quot;org.springframework.http.converter.json.MappingJackson2HttpMessageConverter&quot;&gt;&lt;/bean&gt;
+                        &lt;/list&gt;
+                    &lt;/property&gt;
+                &lt;/bean&gt;
+
+            SpringMVC中处理器映射器、处理器适配器、视图解析器称为SpringMVC三大组件
+            使用&lt;mvc:annotation-driven&gt;自动加载RequestMappingHandlerMapping（处理器映射器）和RequestMappingHandlerAdapter（处理适配器）    
+            在spring-mvc.xml文件中使用&lt;mvc:annotation-driven&gt;替代直接配置组件
+            &lt;mvc:annotation-driven/&gt;底层默认集成Jackson进行对象或集合的json格式字符串转换。</code></pre>
+<h2 id="SpringMVC获取请求数据"><a href="#SpringMVC获取请求数据" class="headerlink" title="SpringMVC获取请求数据"></a>SpringMVC获取请求数据</h2><pre><code>*获取请求参数：
+    参数类型：
+        基本类型参数
+            Controller中的业务方法的参数名称要与请求参数中的名字一致，参数值会自动映射匹配
+        pojo类型参数
+            Controller中的业务方法的pojo参数的属性名与请求参数的name一致，参数值自动映射匹配
+        数组类型参数
+            Controller中的业务方法数组名称与请求参数中的name一致，参数值会自动映射匹配
+        集合类型参数
+            获取集合参数时，要将集合参数包装到一个pojo中
+            当使用ajax提交时，可以指定contentType为json形式，在方法参数位置使用@RequestBody可以直接
+            接收集合数据类型，不需要使用pojo进行包装            
+*静态资源访问问题：
+    &lt;!--开放资源的访问--&gt;
+    &lt;!--&lt;mvc:resources mapping=&quot;/js/**&quot; location=&quot;/js/&quot;&gt;&lt;/mvc:resources&gt;--&gt;
+    &lt;!--如果SpringMVC找不到相应的资源交给默认的容器（Tomcat）寻找--&gt;
+    &lt;mvc:default-servlet-handler/&gt;            
+
+*请求数据乱码问题：
+    当post请求时，数据出现乱码，设置一个过滤器来进行编码的过滤
+        &lt;filter&gt;
+            &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+            &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+            &lt;init-param&gt;
+                &lt;param-name&gt;encoding&lt;/param-name&gt;
+                &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+            &lt;/init-param&gt;
+        &lt;/filter&gt;
+        &lt;filter-mapping&gt;
+            &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+            &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+        &lt;/filter-mapping&gt;
+
+*参数绑定注解@RequestParam
+    当请求的参数名称和Controller的业务方法参数名称不一致时，通过@RequestParam注解显示的绑定
+        public void getReq06(@RequestParam(value = &quot;name&quot;) String username)
+    参数：
+        value：请求参数名称
+        required：指定的请求参数是否必须包括，默认是true，提交时如果没有此参数就报错
+        defaultValue：当没有指定请求参数时，使用指定的默认值赋值
+
+*获取Restful风格参数
+    Restful是一种软件架构风格、设计风格，而不是标准，只是提供了一组设计原则和约束条件。主要用于客户端和服务器交互类的软件，
+    基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存机制等。
+
+    Restful风格的请求是使用 “URL + 请求方式” 表示一次请求目的，HTTP协议里面四个表示操作方式的的动词：
+        GET:用于获取资源
+        POST:用于新建资源
+        PUT:用于更新资源
+        DELETE:用于删除资源        
+
+        例：
+            /user/1 GET:得到id=1的user
+            /user/1 DELETE:删除id=1的user
+            /user/1 PUT:更新id=1的user
+            /user   POST:新增user
+    上述URL地址/user/1中的1就是要获得的请求参数，在SpringMVC中可以使用占位符进行参数绑定。地址/user/1可以写成
+    /user/&#123;id&#125;，占位符&#123;id&#125;对应的就是1的值。业务方法中使用@PathVariable注解进行占位符的匹配获取
+        @RequestMapping(&quot;req07/&#123;username&#125;&quot;)
+        @ResponseBody
+        public void getReq07(@PathVariable(&quot;username&quot;) String username)&#123;
+            System.out.println(username);
+        &#125;
+
+*自定义类型转换器
+    SpringMVC默认提供常用的类型转换器。 字符串--&gt;int等
+    但是不是所有的数据都提供转换器，需要自定义转换器。如：日期类型的数据需要自定义转换器
+        自定义转换器步骤：
+            1.定义转换器类实现Converter&lt;S,T&gt;接口 s：转换前类型 T：转换后
+            2.在配置文件中声明转换器
+            3.在&lt;annotation-driven&gt;中引用转换器  
+
+*获取请求头
+    1.@RequestHeader
+      value：请求头名称
+      required：是否必须携带次请求头
+    2.@CookieValue   
+      value：指定cookie的名称
+      required：是否携带此cookie
+
+*文件上传
+    1.文件上传客户端三要素  
+        表单项：type=&quot;file&quot;                       
+        表单的提交方式必须是：post
+        表单的enctype属性是多部分表单形式，enctype=&quot;multipaty/form-data&quot;
+
+        java web中使用Apache中的fileUpload
+        开发步骤：
+            导入jar包：commons-fileUpload.jar commons-io.jar
+            创建工厂类：
+                DiskFileltemFactory factory = new DiskFileltemFactory();
+            创建解析器：
+                ServletFileUpload upload = new ServletFileUpload(factory);    
+            使用解析器解析request对象：
+                List&lt;Fileltem&gt; list = upload.parseRequest(request);  
+            *一个Fileltem对应一个表单项，Fileltem类的方法：
+                String getField():获取表单项的name的属性值
+                String getName():获取文件字段的文件名，如果为普通字段，返回null
+                String getString():获取字段的内容。如果是普通字段，是value值，文件字段为文件内容
+                String getContentType():获取上传的文件类型，如text/plain、image。如果为普通字段返回值为null
+                String getSize():获取字段内容的大小，单位是字节
+                Boolean isFormField():判断是否是普通表单字段，是为true，否则返回false
+                InputStream getInputStream():获取文件内容的输入流。如果为普通字段，返回value值的输入流      
+    文件上传原理
+        当form表单修改为多部分表单时，request.getParameter()将失效
+        enctype=&quot;application/x-www-form-urlencoded&quot;时，form表单的正文内容格式是：
+            key=value&amp;key=value&amp;key=value
+        当form表单的enctype取值为mutilpart/form-data时，请求正文内容格式就变成多部分形式：
+            &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt; ---&gt; Content-Disposition:form-data;name=&quot;name&quot;
+                                                 value   
+            &lt;input type=&quot;file&quot; name=&quot;file&quot;&gt; ---&gt; Content-Disposition:form-data;name=&quot;file&quot;;
+                                                 filename=&quot;xxx&quot;
+                                                 Content-Type:xxx          
+                                                 value
+
+    SpringMVC实现单文件上传步骤
+        1.导入fileupload和io坐标
+        2.配置文件上传解析器 CommonsMultipartResolver
+            &lt;!--配置文件上传解析器--&gt;
+            &lt;bean class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot; id=&quot;multipartResolver&quot;&gt;
+                &lt;!--上传文件总大小 5MB 1024*1024*5--&gt;
+                &lt;property name=&quot;maxUploadSize&quot; value=&quot;5242800&quot;/&gt;
+                &lt;!--上传单个文件的大小--&gt;
+                &lt;property name=&quot;maxUploadSizePerFile&quot; value=&quot;5242800&quot;/&gt;
+                &lt;!--上传文件的编码类型--&gt;
+                &lt;property name=&quot;defaultEncoding&quot; value=&quot;UTF-8&quot;/&gt;
+            &lt;/bean&gt;
+        3.编写文件上传代码      </code></pre>
+<h2 id="SpringMVC拦截器（interceptor）"><a href="#SpringMVC拦截器（interceptor）" class="headerlink" title="SpringMVC拦截器（interceptor）"></a>SpringMVC拦截器（interceptor）</h2><pre><code>作用：
+    SpringMVC的拦截器类似servlet中的过滤器filter，用于对处理器进行预处理和后处理
+    将拦截器按一定的顺序联结成一条链（拦截器链），在访问被拦截的方法或字段时，拦截器链中的拦截器就会按其之前定义的顺序被调用
+    拦截器也是aop思想的具体实现 
+
+拦截器和过滤器区别
+    区别             过滤器                        拦截器
+    使用范围       servlet规范中的一部分，任何        SpringMVC框架自己的，只有使用
+                 java web工程都可以使用            SpringMVC框架工程才可以使用
+    拦截范围       在url-pattren中配置了/*之后，     只会拦截访问的控制器方法，如果访问jsp，html，   
+                 可以对所有要访问的资源拦截           css不会进行拦截        
 快速入门：
-    1.步骤：
-        1.定义一个类，实现接口Filter
-        2.复写方法
-        3.配置拦截路径    
-
-过滤器细节：
-    1.web.xml配置 
-        url-pattern拦截路径
-    2.过滤器执行流程
-        1.执行过滤器
-        2.执行放行后的资源
-        3.回来执行过滤器放行代码下面的代码
-        先执行chain.doFilter(req,resp)之前的代码，在执行访问的资源，最后执行chain.doFilter(req,resp)之后的代码
-    3.过滤器生命周期方法
-        init：在服务器启动后，会创建Filter对象，然后调用init方法。只执行一次，用于加载资源
-        doFilter：每一次请求被拦截资源时，会执行。执行多次
-        destroy：在服务器关闭后，filter对象被销毁。如果服务器正常关闭 ，则会执行destroy方法。只执行一次。用于释放资源
-    4.过滤器配置详解
-        拦截路径配置：
-            1.具体资源路径：/index.jsp 只有访问index.jsp资源时，过滤器才会被执行
-            2.拦截目录：/user/* 访问/user下的所有资源时，过滤器都会被执行
-            3.后缀名拦截：*.jsp 访问所有后缀名为jsp资源时，过滤器都会被执行
-            4.拦截所有资源：/* 访问所有资源时，过滤器都会被执行
-        拦截方式配置：资源被访问的方式
-            注解配置：
-                *设置dispatcherTypes属性
-                    1.REQYEST:默认值。浏览器直接请求资源
-                    2.FORWARD:转发访问资源
-                    3.INCLUDE:包含访问资源
-                    4.ERROR:错误跳转资源
-                    5.ASYNC:异步访问资源
-            web.xml配置
-                设置&lt;dispatcher&gt;&lt;/dispatcher&gt;标签        
-    5.过滤器链（配置多个过滤器）    
-        执行顺序：
-            1.过滤器1
-            2.过滤器2
-            3.资源执行
-            4.过滤器2
-            5.过滤器1 
-        过滤器先后顺序问题：
-            1.注解配置：按照类名的字符串比较规则比较，值小的先执行
-            2.web.xml配置：&lt;filter-mapping&gt;谁定义在上边，谁先执行       
-
-    增强对象的功能：
-        1.装饰模式
-        2.代理模式
-            *概念：
-                1.真实对象：被代理的对象
-                2.代理对象
-                3.代理模式：代理对象代理真实对象，达到增强真实对象功能的目的
-            *实现方式：
-                1.静态代理:有一个类文件描述代理模式
-                2.动态代理:在内存中形成代理类
-                    *实现步骤
-                        1.代理对象和真实对象实现相同的接口
-                        2.代理对象 = Proxy.newProxyInstance();
-                        3.使用代理对象调用方法
-                        4.增强方法
-                    *增强方式
-                        1.增强参数列表
-                        2.增强返回值类型
-                        3.增强方法体执行逻辑</code></pre>
-<h2 id="Listener-监听器"><a href="#Listener-监听器" class="headerlink" title="Listener:监听器"></a>Listener:监听器</h2><pre><code>*概念：web三大组件之一
-    *事件监听机制
-        *事件：一件事情
-        *事件源：事件发生的地方
-        *监听器：一个对象
-        *注册监听：将事件、事件源、监听器绑定在一起。当事件源上发生某个事件后，执行监听器代码
-
-*ServletContextListener:监听ServletContext对象的创建和销毁
-    void contextDestroyed(ServletContextEvent sce):ServletContext对象被销毁之前会调用
-    void contextInitialized(ServletContextEvent sce):ServletContext对象创建后会调用
-
-    步骤：
-        1.定义一个类，实现ServletContextListener接口
-        2.复写方法
-        3.配置
-            1.xml：
-                &lt;listener&gt;
-                    &lt;listener-class&gt;路径&lt;/listener-class&gt;
-                &lt;listener/&gt;        
-                指定初始化参数                                            
-            2.注解
-                @WebListener    </code></pre>
+    1.创建拦截器类实现HandlerInterceptor接口
+    2.配置拦截器
+    3.测试拦截器的拦截效果                                                               </code></pre>
+<p>##SpringMVC异常处理机制<br>    系统中异常包括两类：预期异常和运行时异常RuntimeException，前者通过捕获异常获得异常信息，后者主要通过规范代码、测试减少<br>    系统的Dao、Service、Controller出现都通过throws Exception向上抛出，最后由SpringMVC前端控制器交由异常处理器进行异常处理</p>
+<pre><code>SpringMVC异常处理两种方式
+    1.使用SpringMVC提供的简单异常处理器SimpleMappingExceptionResolver
+        &lt;!--异常处理器--&gt;
+        &lt;bean class=&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;&gt;
+            &lt;!--默认错误视图--&gt;
+            &lt;!--&lt;property name=&quot;defaultErrorView&quot; value=&quot;error&quot;/&gt;--&gt;
+            &lt;property name=&quot;exceptionMappings&quot;&gt;
+                &lt;map&gt;
+                    &lt;entry key=&quot;java.lang.ClassCastException&quot; value=&quot;error1&quot;/&gt;
+                    &lt;entry key=&quot;com.spring.exception.MyException&quot; value=&quot;error2&quot;/&gt;
+                &lt;/map&gt;
+            &lt;/property&gt;
+        &lt;/bean&gt;
+    2.实现Spring的异常处理接口HandlerExceptionResolver自定义自己的异常处理器
+        自定义异常处理步骤：  
+            1.创建异常处理器类实现HandlerExceptionResolver
+            2.配置异常处理器
+            3.编写异常页面
+            4.测试异常跳转</code></pre>
 
       
 
@@ -1210,7 +505,7 @@ maven工程的聚合
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/Filter/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/03/springMVC/">展开全文 >></a>
         </p>
       
 
@@ -1240,245 +535,296 @@ maven工程的聚合
 
 
   
-    <article id="post-Cookie&amp;Session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h2><pre><code>1.回话：一次回话中包含多次请求和响应
-    *一次回话：浏览器第一次给服务器资源发送请求，会话建立。直到有一方断开为止
-2.功能：在一次会话的范围内的多次请求间共享数据
-3.方式：
-    1.客户端会话技术：cookie
-    2.服务器端会话技术：Session   </code></pre>
-<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><pre><code>1.概念：客户端会话技术，将数据保存到客户端
-2.入门：
-    *使用步骤：
-        1.创建Cookie对象，绑定数据
-            *new Cookie(String name, String value);         
-        2.发送cookie对象
-            *response.addCookie(Cookie cookie);
-        3.获取Cookie，拿到数据
-            *Cookie[] request.getCookies()        
-3.实现原理
-    *基于响应头set-cookie和请求头cookie实现
-4.cookie细节
-    1.一次可不可以发送多个cookie？
-        *可以
-        *可以创建多个cookie对象，使用response调用多次addCookie方法发送
-    2.cookie在浏览器中保存多长时间？
-        1.默认情况下，当浏览器关闭后，cookie数据被销毁
-        2.持久化存储:
-            *setMaxAge(int seconds)
-                1.正数：将cookie数据写到硬盘的文件中。持久化存储。 值为cookie存活时间
-                2.负数：默认值
-                3.零：删除cookie信息
-    3.cookie能不能存中文？
-        *tomcat 8 之前 cookie中不能直接存储中文数据
-            *需要将中文数据转码--采用URL编码
-        *tomcat 8 之后，cookie支持中文数据；特殊字符不支持，使用URL编码解决    
-    4.cookie共享问题？                                
-        1.一个Tomcat服务器中，部署了多个web项目，那么这些web项目中cookie能不能共享？
-            *默认情况下cookie不能共享
-            *setPath(String path)：设置cookie的获取范围。默认情况下，设置的是当前的虚拟目录
-                *要共享可以将path设置为&quot;/&quot;
-        2.不同的Tomcat服务器cookie共享问题？
-            *setDomain(String path):如果设置一级域名相同，那么多个服务器之间cookie可以共享
-                *setDomain(&quot;.baidu.com&quot;),那么tieba.baidu.com和news.baidu.com中cookie共享                        
-    5.cookie的特点和作用
-        1.cookie存储数据在客户端浏览器
-        2.浏览器对于单个cookie的大小有限制（4kb）以及对同一个域名下的总cookie数量也有限制（20个）            
+        <h1 id="Spring快速入门"><a href="#Spring快速入门" class="headerlink" title="Spring快速入门"></a>Spring快速入门</h1><pre><code>Spring开发步骤
+    1.导入坐标
+    2.创建Bean
+    3.创建applicationContext.xml
+    4.在配置文件中进行配置
+    5.创建ApplicationContext对象getBean(id);</code></pre>
+<h2 id="Spring-配置文件"><a href="#Spring-配置文件" class="headerlink" title="Spring 配置文件"></a>Spring 配置文件</h2><pre><code>Bean标签基本配置
+    默认情况下调用的是类中的无参构造函数，如果没有无参构造函数则不能创建成功。
+    基本属性:
+        id:Bean实例在Spring容器中的唯一标识
+        class:Bean的全限定名称  
 
-        *作用：
-            1.cookie一般用于存储少量的不太敏感的数据
-            2.在不登录的情况下，完成服务器对客户端的身份识别</code></pre>
-<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><pre><code>1.概念：服务器端会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器端的对象中。HTTPSession
-2.入门：
-    1.获取HTTPSession对象：
-        HttPSession request.getSession();                
-    2.使用HttpSession对象：
-        object getAttribute(String name)
-        void setAttribute(String name, Object value)    
-        void removeAttribute(String name)
-3.原理
-    *Session的实现依赖于cookie  
-4.细节：
-    1.当客户端关闭后，服务器不关闭，两次获取的Session是否为同一个？
-        *默认情况不为同一个
-        *若需要，可以创建cookie，键位JSESSIONID,设置为最大存活时间，让cookie持久化保存
-            Cookie cookie = new Cookie(&quot;JSESSIONID&quot;,session.getId());
-            cookie.setMaxAge(时间);
-            response.addCookie(cookie);
-    2.客户端不关闭，服务器关闭后，两次获取的Session是否为同一个？
-        *不是同一个，tomcat自动完成一些动作保证数据不丢失
-            *Session的钝化：
-                *在服务器正常关闭之前，将Session对象序列化到硬盘上
-            *Session的活化：
-                *在服务器启动后，将Session文件转化为内存中的Session对象    
-    3.Session的失效时间？（被销毁）         
-        1.服务器关闭
-        2.Session对象调用invalidate()
-        3.Session默认失效时间 30分钟
-            选择修改配置
-                &lt;session-config&gt;
-                    &lt;session-timeout&gt;30&lt;/session-timeout&gt;
-                &lt;/session-config&gt;
-    4.Session的特点
-        1.Session用于存储一次会话的多次请求的数据，存在服务器端
-        2.Session可以存储任意类型，任意大小的数据
+Bean标签范围配置
+    scope:指对象的作用范围
+        取值范围        
+        singleton       默认值，单例的
+              Bean的实例化个数：1个
+              Bean的实例化时机：当Spring核心文件被加载时，实例化配置的Bean实例   加载配置文件就创建       
+              Bean的生命周期：
 
-        *Session与cookie的区别：
-            1.Session存储数据在服务器端，Cookie在客户端
-            2.Session没有数据大小限制，Cookie有
-            3.Session数据安全，Cookie相对于不安全            </code></pre>
-<h2 id="jsp"><a href="#jsp" class="headerlink" title="jsp"></a>jsp</h2><pre><code>1.概念：
-    *java Server pages：java服务器端页面
-        *可用于简化书写；既可以定义HTML标签，又可以定义java代码
-2.原理
-    *jsp本质上就是一个Servlet  
-3.jsp的脚本
-    1.&lt;%  代码  %&gt;：定义的java代码，在service方法中。service方法中可以定义什么，该脚本就可以定义什么
-    2.&lt;%! 代码  %&gt;：定义的java代码，在jsp转换后的java类的成员位置
-    3.&lt;%= 代码  %&gt;：定义的java代码，会输出到页面上。输出语句中可以定义什么，该脚本就可以定义什么
-4.指令：
-    *作用：用于配置jsp页面，导入资源文件
-    *格式：&lt;%@ 指令名称 属性名1=属性值1 属性名2=属性值2.... %&gt;
-    *分类：
-        1.page 配置jsp页面的
-        *contentType:等同于response.setContentType()
-            1.设置响应体的mime类型以及字符集
-            2.设置当前jsp页面的编码（高级IDE可以生效，其他需设置pageEncoding属性设置当前页面的字符集）
-                *import：导包
-                *errorPage：当前页面发生异常后，会自动跳转到指定的错误页面
-                *isErrorPage：标识当前页面是否是错误页面
-                    *true:是，可以使用内置对象exception
-                    *false:否，默认值。不可以使用内置对象exception    
-        2.include  页面包含。 导入页面的资源文件
-            &lt;%@ include file=&quot;xxx.jsp&quot;%&gt;
-        3.taglib   导入资源
-            &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;xxxxxxxxx&quot; %&gt;
-            prefix:前缀，自定义的
-5.注释：
-    1.HTML注释 只能注释HTML片段
-    2.jsp注释 &lt;%-- --%&gt; 可以注释所有 
-6.jsp的内置对象   
-        *在jsp页面中不需要获取和创建，可以直接使用的对象
-        *jsp中共有9个内置对象
-                变量名                 真实类型                            作用
-            *pageContext            PageContext                     当前页面共享数据。可以获取其他八个内置对象
-            *request                HttpServletRequest              一次请求访问的多个资源（转发）共享数据
-            *session                HttpSession                     一次回话的多个请求间共享数据
-            *application            ServletContext                  所有用户间共享数据
-            *response               HttpServletResponse             响应对象
-            *page                   Object                          当前页面（Servlet）的对象 this
-            *out                    JspWriter                       输出对象，数据输出到页面上
-            字符输出流对象。可以将数据输出到页面上。和response.getWriter()类似
-                *response.getWriter()和out.write()的区别：
-                    *在Tomcat服务器真正给客户端做出相应之前，会先找response缓冲区数据，再找out缓冲区数据
-                    *response.getWriter()数据输出永远在out.write()之前                                  
-            *config                 ServletConfig                   Servlet的配置对象
-            *exception              Throwable                       异常对象</code></pre>
+                对象创建：当应用加载，创建容器时，对象创建。
+                对象运行：只要容器在，对象一直活着
+                对象销毁：当应用卸载，销毁容器时，对象销毁
+        prototype       多例的             getBean时创建
+              Bean的实例化个数：多个
+              Bean的实例化时机：当调用getBean()方法时，实例化Bean 
+              Bean的生命周期：
+                对象创建：当使用对象时，创建新的对象实例
+                对象运行：只要对象在使用中，对象一直活着
+                对象销毁：当对象长时间不用时，被java垃圾回收器回收
+        request         WEB项目中，Spring创建一个Bean的对象，将对象存入到request域中
+        session         WEB项目中，Spring创建一个Bean的对象，将对象存入到session域中    
+        global session  WEB项目中，应用在Porlet环境，如果没有Porlet环境那个globalSession相当于session
+Bean声明周期配置
+    init-method：指定类中的初始化方法名称
+    destroy-method：指定类中销毁方法名称
+Bean实例化三种方式：
+    无参构造方法实例化   &lt;bean id=&quot;userDao&quot; class=&quot;全限定名&quot;&gt;&lt;/bean&gt;
+    工厂静态方法实例化   &lt;bean id=&quot;userDao&quot; class=&quot;工厂的全限定名&quot; factory-method=&quot;方法&quot;&gt;&lt;/bean&gt;
+    工厂实例方法实例化   &lt;bean id=&quot;工厂id&quot; class=&quot;工厂的全限定名&quot;&gt;&lt;/bean&gt;   
+                     &lt;bean id=&quot;userDao&quot; factory-bean=&quot;工厂id&quot; factory-method=&quot;方法&quot;&gt;&lt;/bean&gt;    
 
-      
+Bean的依赖注入（Dependency Injection）
+    Spring框架核心IOC的具体实现
+    编写程序时，通过控制反转，把对象的创建交给Spring，但是代码中不可能出现没有依赖的情况。
+    IOC解耦只是降低依赖关系，但不会消除。
+    等框架把持久层对象传入业务层，不用自己获取
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+    方式：
+        set方法注入
+            private UserDao userDao;
+            publice void setUserDao(UserDao userDao)&#123;
+                this.userDao = userDao;
+            &#125;
+            配置文件：
+                &lt;bean id=&quot;userDao&quot; class=&quot;com.springTest.dao.daoImp.UserDaoImp&quot;&gt;&lt;/bean&gt;
+                &lt;!--  注入依赖  --&gt;
+                &lt;bean id=&quot;userService&quot; class=&quot;com.springTest.service.imp.UserServiceImp&quot;&gt;
+                    &lt;property name=&quot;userDao&quot; ref=&quot;userDao&quot;&gt;&lt;/property&gt;
+                &lt;/bean&gt;
+                P命名空间注入本质也是set方法注入，但比起set方法注入更加方便，需要在配置文件中引入p命名空间
+                    xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+                修改注入方式：
+                    &lt;bean id=&quot;userService&quot; class=&quot;userServiceImp全限定名&quot; p:userDao-ref=&quot;userDao&quot;/&gt;
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/Cookie&Session/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ajax" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##AJAX<br>    1.概念： ASynchronous javaScript And XML  异步的JavaScript 和 xml<br>        1.异步和同步：客户端和服务器端相互通信的基础上<br>            *客户端必须等待服务器端的响应。在等待的期间客户端不能做其他操作<br>            *客户端不需要等待服务器端的响应。在服务器处理请求的过程中，客户端可以进行其他的操作</p>
-<pre><code>        ajax 是一种无需重新加载整个网页的情况下，能够更新部分网页的计数
-        通过在后台与服务器进行少量的数据交换，ajax可以使网页实现异步更新。 意味着可以不再重新加载整个网页的情况下，对网页的某部分进行更新
-        传统的网页（不使用ajax）如果需要更新内容，必须重载整个网页页面。
-        提升用户的体验
-
-    2.实现方式：
-        1.原生的js实现
-            1.创建核心对象
-            var xmlhttp;
-            if(window,XMLHttpRequest)&#123;
-                //IE7+,Firefox,Chrome,Opera,Safari
-                xmlhttp = new XMLHttpRequest();
-            &#125;else&#123;
-                //IE6,IE5
-                xmlhttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
-            &#125;    
-            2.建立连接
-            /*
-                参数：
-                    1.请求方式：GET、POST
-                        *GET方式:请求参数在URL后面拼接。send方法为空参
-                        *POST:请求参数在send方法中定义
-                    2.请求的URL
-                    3.同步或异步请求:true(异步) 或 false(同步)    
-            */
-            xmlhttp.open(&quot;GET&quot;,&quot;ajaxServlet?username=xxx&quot;,true);
-            3.发送请求
-            xmlhttp.send();
-            4.接收并处理来自服务器的响应结果
-            //获取方式:xmlhttp.responseText
-            //服务器响应成功后获取
-            //当xmlhttp对象的就绪状态改变时，触发事件onreadystatechange
-            xmlhttp.onreadystatechage=function()&#123;
-                //判断readystate就绪状态是否为4，判断status响应状态码是否为200
-                if(xmlhttp.readyState == 4 &amp;&amp; xmlhttp.status == 200)&#123;
-                //获取服务器的响应结果
-                    var responseText = xmlhttp.responseText;
+        构造方法注入：
+            构造方法：
+                public UserServiceImp(UserDao userDao) &#123;
+                    this.userDao = userDao;
                 &#125;
-            &#125;
+            配置文件：
+                &lt;bean id=&quot;userService&quot; class=&quot;com.springTest.service.imp.UserServiceImp&quot;&gt;
+                    &lt;constructor-arg name=&quot;userDao&quot; ref=&quot;userDao&quot;&gt;&lt;/constructor-arg&gt;
+                &lt;/bean&gt;    
 
-        2.jquery实现方式
-            1.$.ajax()
-                语法: $.ajax(&#123;键值对&#125;);    
+    Bean的依赖注入的数据类型
+        普通数据类型:通过property标签中 name value属性配置
+        引用数据类型:使用value-ref引用
+        集合数据类型   
+            &lt;map&gt;
+                &lt;entry key=&quot;user1&quot; value-ref=&quot;user1&quot;&gt;&lt;/entry&gt;
+            &lt;/map&gt;   
+            &lt;list&gt;
+                &lt;value&gt;aaa&lt;/value&gt;                   
+            &lt;/list&gt;  
+            &lt;property name=&quot;prop&quot;&gt;
+                &lt;props&gt;
+                    &lt;prop key=&quot;p1&quot;&gt;1&lt;/prop&gt;
+                &lt;/props&gt;
+            &lt;/property&gt;     
 
-            2.$.get():发送get请求
-                语法: $.get(url,[data],[callback],[type])
-                    参数:
-                        url:请求路径
-                        data:请求参数
-                        callback:回调函数
-                        type:响应结果的类型
-            3.$.post():发送post请求 
-                语法: $.post(url,[data],[callback],[type])       </code></pre>
+    *引入其他配置文件(分模块开发)             
+        将部分配置拆解到其他配置文件中，在Spring主配置文件中通过import标签进行加载
+        &lt;import resource=&quot;applicationContext-xxx.xml&quot;/&gt;</code></pre>
+<hr>
+<pre><code>*Spring的重点配置
+    &lt;bean&gt;标签
+        id属性:在容器中Bean实例的唯一标识，不允许重复
+        class属性:要实例化的Bean的全限定名
+        scope属性:Bean的作用范围。常用Singleton(默认)和prototype
+        &lt;property&gt;标签:属性注入
+            name属性:属性名称
+            value属性:注入的普通属性值
+            ref属性:注入的对象引用值
+            &lt;list&gt;标签
+            &lt;map&gt;标签
+            &lt;properties&gt;标签
+        &lt;constructor-arg&gt;标签:构造方法注入                   
+    &lt;import&gt;标签:导入其他的Spring的分文件</code></pre>
+<p>##Spring相应API<br>    applicationContext:接口类型，代表应用上下文，可以通过其实例获得Spring容器中的Bean对象<br>    ApplicationContext的实现类：<br>        1.ClassPathXmlApplicationContext:<br>            从类的根路径下加载配置文件<br>        2.FileSystemXmlApplicationContext:<br>            从磁盘路径上加载配置文件，配置文件可以在磁盘的任意位置<br>        3.AnnotationConfigApplicationContext:<br>            使用注解配置容器对象时，需要使用此类来创建Spring容器。用于读取注解<br>    getBean()方法使用:<br>        参数类型:<br>            第一种:String name 根据beanid获取 允许存在多个相同类型的bean<br>            第二种:Class<T> requiredType 根据字节码文件获取  只允许存在一个相同类型的bean，否则报错<br>##Spring配置数据源<br>    数据源(连接池)的作用<br>        数据源(连接池)提高程序性能<br>        事先实例化数据源，初始化部分连接资源<br>        使用连接资源时从数据源中获取<br>        使用完毕后将连接资源归还给数据源  </p>
+<pre><code>抽取jdbc配置文件
+    applicationContext.xml加载数据库properties配置文件获得连接信息
+    需要引入context命名空间和约束路径
+        命名空间:xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+        约束路径:http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd      
+        Spring容器加载properties文件
+            &lt;context:property-placeholder location=&quot;xx.properties&quot;/&gt;
+            &lt;property name=&quot;&quot; value=&quot;$&#123;&#125;&quot;&gt;                </code></pre>
+<p>##Spring注解开发<br>    Spring轻代码重配置的框架，配置比较繁重，影响开发效率，注解代替xml配置文件可以简化配置，提高开发效率<br>    Spring原始注解<br>        Spring原始注解主要是替代<Bean>的配置<br>        注解                      说明<br>        @Component（组件）    使用在类上用于实例化Bean<br>        @Controller         使用在web层类上用于实例化Bean<br>        @Service            使用在Service层类上用于实例化Bean<br>        @Repository         使用在dao层类上用于实例化Bean<br>        @Autowired          使用在字段上用于根据类型依赖注入                    如果只写Autowired会按照数据类型从Spring容器中进行匹配<br>        @Qualifier          结合@Autowired一起使用用于根据名称进行依赖注入       和@Autowired配合使用，按照id值从容器中进行匹配<br>        @Resource           相当于@Autowired+@Qualifier，按照名称进行注入<br>        @Value              注入普通属性<br>        @Scope              标注Bean的作用范围<br>        @PostConstruct      使用在方法上标注该方法是Bean的初始化方法<br>        @PreDestroy         使用在方法上标注该方法是Bean的销毁方法<br>    *使用注解时，需要在配置文件中配置组件扫描，作用是指定哪个包及其子包下的Bean需要进行扫描以便识别使用注解配置的类、字段和方法<br>    &lt;context:component-scan base-package=””&gt;</context:component-scan>    </p>
+<pre><code>Spring新注解
+    注解                      说明
+    @Configuration      用于指定当前类是一个Spring配置类，当创建容器时会从该类上加载注解（标志该类是Spring的核心配置类）
+    @ComponentScan      用于指定Spring在初始化容器时要扫描的包。
+                        作用和在Spring的xml配置文件中的&lt;context:component-scan base-package=&quot;xx&quot;/&gt;一样
+    @Bean               使用在方法上，标注将该方法的返回值存储到Spring容器中
+    @PropertySource     用于加载properties文件中的配置
+    @Import             用于导入其他配置类 </code></pre>
+<p>##Spring集成Junit<br>    Spring集成Junit步骤<br>        导入spring集成Junit的坐标<br>        使用@Runwith注解替换原来的运行期<br>        使用@ContextConfiguration指定配置文件或配置类<br>        使用@Autowired注入需要测试的对象<br>        创建测试方法进行测试</p>
+<p>##Spring AOP<br>    AOP:Aspect Oriented Programming的缩写，面向切面编程，是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术<br>        AOP是OOP(面向对象编程)的延续，Spring框架中的一个重要内容，是函数式编程的一种衍生泛型。利用AOP可以对业务逻辑的各个部分进行隔离。<br>    从而使得业务逻辑各部分之间的耦合度降低，提到程序的可重用性，同时提高开发的效率。  </p>
+<pre><code>AOP作用:在程序运行期间，在不修改源码的情况下对方法进行功能增强
+AOP优势:减少重复代码，提高开发效率，并且便于维护
+
+AOP底层实现:
+       AOP的底层是通过Spring提供的动态代理技术实现，在运行期间，Spring通过动态代理技术动态的生成代理对象，代理对象方法执行时进行
+    增强功能的介入，在去调用目标对象的方法，从而完成功能的增强。
+AOP的动态代理技术:
+    常用的动态代理技术
+        JDK代理:基于接口的动态代理技术
+        cglib代理:基于父类的动态代理技术
+*AOP相关概念
+    Target(目标对象):代理的目标对象
+    Proxy(代理):一个类被AOP织入增强后，就产生一个结果代理类
+    Joinpoint(连接点):是指被拦截到的点。在spring中，这些点指的是方法，spring只支持方法类型的连接点(可以被增强的方法)
+    Pointcut(切入点):是指要对哪些Joinpoint进行拦截定义(真正被增强的方法)
+    Advice(通知/增强):指拦截到Joinpoint之后所要做的事情就是通知
+    Aspect(切面):是切入点和通知的结合
+    Weaving(织入):是指把增强对象应用到目标对象来创建新的代理对象的过程。spring采用动态代理织入，而AspectJ采用编译期织入和类装载期织入       
+
+需要编写的内容
+    1.编写核心业务代码(目标类中的目标方法)       
+    2.编写切面类，切面类中有通知(增强功能方法)
+    3.在配置文件中，配置织入关系（哪些通知和哪些连接点进行结合）
+AOP技术实现的内容
+        Spring框架监控切入点方法的执行。 一旦监控到切入点方法被运行，使用代理机制，动态创建目标对象的代理对象，根据通知类别，在代理对象的对应位置
+    将通知对应的功能织入，完成完整的代码逻辑运行   </code></pre>
+<p>###基于xml的AOP开发<br>    快速入门<br>        1.导入AOP相关坐标<br>        2.创建目标接口和目标类(内部有切点)<br>        3.创建切面类（内部有增强方法）<br>        4.将目标类和切面类的对象创建权交给spring<br>        5.在applicationContext.xml中配置织入关系<br>        6.测试代码<br>    xml配置<br>        <!--目标对象--><br>            <bean id="target" class="com.springTest.aop.Target"></bean><br>        <!--切面对象--><br>            <bean id="myAspect" class="com.springTest.aop.MyAspect"></bean><br>        <!--配置织入:告诉spring框架 哪些方法(切点)需要进行哪些增强（前置、后置）--><br>            <a href="aop:config">aop:config</a><br>                <!--声明切面--><br>                &lt;aop:aspect ref=”myAspect”&gt;<br>                    <!--切面：切点加通知--><br>                    &lt;aop:before method=”before” pointcut=”execution(public void com.springTest.aop.Target.save())”&gt;</aop:before><br>                    &lt;aop:before method=”before” pointcut=”execution(* com.springTest.aop.*.*(..))”&gt;</aop:before><br>                </aop:aspect><br>            </aop:config></p>
+<pre><code>    切点表达式：
+        语法：
+            execution([修饰符] 返回值类型 包名.类名.方法名(参数))                   
+                访问修饰符可以省略
+                返回值类型、包名、类名、方法名可以使用星号*代表任意
+                包名与类名之间的一个点.代表当前包下的类，两个点..表示当前包及其子包下的类
+                参数列表可以使用两个点..表示任意个数，任意类型的参数列表
+        抽取：
+            execution：执行
+            expression：表达式
+            &lt;aop:pointcut id=&quot;&quot; expression=&quot;&quot;/&gt;
+            配置中使用pointcut-ref引用    
+    通知的类型：
+        语法：
+            &lt;aop:通知类型 method=&quot;切面类中方法名&quot; pointcut=&quot;切点表达式&quot;&gt;&lt;/aop:通知类型&gt;        
+        名称              标签                      说明    
+        前置通知        &lt;aop:before&gt;            用于配置前置通知。指定增强的方法在切入点方法之前执行
+        后置通知        &lt;aop:after-returning&gt;   用于配置后置通知。指定增强的方法在切入点方法之后执行
+        环绕通知        &lt;aop:around&gt;            用于配置环绕通知。指定增强的方法在切入点方法之前和之后都执行
+        异常抛出通知     &lt;aop:after-throwing&gt;    用于配置异常抛出的通知，指定增强的方法在出现异常时执行
+        最终通知        &lt;aop:after&gt;             用于配置最终通知。无论增强方式执行是否有异常都会执行
+*要点
+    &lt;aop:config&gt;
+        &lt;aop:aspect ref=&quot;切面类&quot;&gt;
+            &lt;aop:通知类型 method=&quot;通知方法名称&quot; pointcut=&quot;切点表达式&quot;&gt;&lt;/aop:before&gt;
+        &lt;/aop:aspect&gt;
+    &lt;/aop:config&gt;        </code></pre>
+<p>###基于注解的AOP开发<br>    快速入门：<br>        基于注解的aop开发步骤“<br>            1.创建目标接口和目标类(内部有切点)<br>            2.创建切面类(内部有增强方法)<br>            3.将目标类和切面类的对象创建交给spring<br>            4.在切面类中使用注解配置织入关系<br>            5，在配置文件中开启组件扫描和AOP的自动代理<br>                <!--组件扫描--><br>                &lt;context:component-scan base-package=”com.springTest.aop_anno” &gt;</context:component-scan><br>                <!--aop自动代理--><br>                <a href="aop:aspectj-autoproxy/">aop:aspectj-autoproxy/</a><br>            6.测试<br>    注解配置：<br>        注解通知的类型<br>            通知的配置语法：@通知注解(“切点表达式”)<br>            前置通知：@Before    后置通知：@AfterReturning    环绕通知：@Around<br>            异常抛出通知：@AfterThrowing   @最终通知：@After<br>        切点表达式抽取<br>            在切面内定义方法，在方法上使用@pointcut注解定义切点表达式，然后在增强注解中进行引用<br>                @Pointcut(“execution(* com.springTest.aop_anno.<em>.</em>(..))”)<br>                public void myPoint(){}<br>##Spring JdbcTemplate<br>    JdbcTemplate开发步骤：<br>        1.导入spring-jdbc和spring-tx坐标<br>        2.创建数据库表和实体<br>        3.创建JdbcTemplate对象<br>        4.执行数据库操作<br>##事务控制<br>    编程式事务控制：<br>        相关对象：<br>            1.PlatformTransactionManager（平台事务管理器）接口是spring的事务管理器，提供常用的操作事务的方法<br>                方法：<br>                    TransactionStatus getTransaction(TransactionDefination defination)  获取事务的状态信息<br>                    void commit(TransactionStatus status)   提交事务<br>                    void rollback(TransactionStatus status) 回滚事务<br>                    PlatformTransactionManager是接口类型，不同的Dao层技术有不同的实现类<br>                        当Dao层技术是jdbc或mybatis时：<br>                            org.springframework.jdbc.datasource.DataSourceTransactionManager<br>                        当Dao层技术是hibernate时：<br>                            org.springframework.orm.hibernate5.HibernateTransactionManager</p>
+<pre><code>        2.TransactionDefinition 事务的定义信息对象
+            方法：
+                int getIsolationLevel()         获得事务的隔离级别
+                    事务隔离级别，可以解决事务并发产生的问题：脏读、不可重复读和虚读
+                        ISOLATION_DEFAULT          默认
+                        ISOLATION_READ_UNCOMMITTED 读未提交
+                        ISOLATION_READ_COMMITTED   读已提交
+                        ISOLATION_REPEATABLE_READ  可重复读
+                        ISOLATION_SERIALIZABLE     序列化
+
+                int getPropogationBehavior()    获得事务的传播行为        
+                    事务传播行为：
+                        REQUIRED:如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。
+                        SUPPORTS:支持当前事务，如果当前没有事务，就以非事务方式执行
+                        MANDATORY:使用当前的事务，如果当前没有事务，就抛出异常
+                        REQUERS_NEW:新建事务，如果当前在事务中，把当前事务挂起
+                        NOT_SUPPORTED:以非事务方式执行操作，如果当前存在事务，就把当前事务挂起
+                        NEVER:以非事务方式运行，如果当前存在事务，则抛出异常。
+                        NESTED:如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行REQUIRED类似的操作（spring特有）
+
+                int getTimeout()                获取超时时间
+                    默认值是-1，没有超时限制。如果有，以秒为单位设置
+
+                boolean isReadOnly()            是否只读
+                    （建议查询时设置为只读）
+
+        3.TransactionStatus 接口提供的事务具体的运行状态
+            boolean hasSavepoint()          是否存储回滚点
+            boolean isCompleted()           事务是否完成
+            boolean isNewTransaction()      是否是新事务
+            boolean isRollbackOnly()        事务是否回滚 
+
+声明式事务控制：
+    采用声明的方式来控制事务
+    作用：
+        事务管理不侵入开发的组件
+        在不需要事务管理的时候，只要在设定文件上修改一下，即可移去事务管理服务，无需改变代码的重新编译，维护起来更方便
+    Spring声明式事务控制底层就是AOP    
+
+    使用xml声明式事务控制
+        xml配置:
+            目标对象配置：
+                &lt;bean id=&quot;&quot; class=&quot;&quot;&gt;    
+            平台事务管理器配置：
+                &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+                    数据源，数据库连接
+                    &lt;property name=&quot;dataSource&quot; ref=&quot;druid&quot;&gt;&lt;/property&gt;
+                &lt;/bean&gt;    
+            事务增强配置：
+                &lt;!--通知 事务的增强--&gt;
+                &lt;!--需引入tx命名空间--&gt;
+                &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+                    &lt;!--设置事务属性信息--&gt;
+                    &lt;tx:attributes&gt;
+                        &lt;!--name:增强的方法 切点方法名称 --&gt;
+                        &lt;!--isolation:事务的隔离级别--&gt;
+                        &lt;!--propagation:事务的传播行为--&gt;
+                        &lt;!--timeout:超时时间--&gt;
+                        &lt;!--read-only:是否只读--&gt;
+                        &lt;tx:method name=&quot;transfer&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; timeout=&quot;-1&quot; read-only=&quot;false&quot;/&gt;
+                        &lt;tx:method name=&quot;findAll&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; timeout=&quot;-1&quot; read-only=&quot;true&quot;/&gt;
+                        &lt;tx:method name=&quot;*&quot; /&gt;
+                    &lt;/tx:attributes&gt;
+                &lt;/tx:advice&gt;               
+            事务的aop织入配置：
+                &lt;aop:config&gt;
+                    &lt;aop:advisor advice-ref=&quot;&quot; pointcut=&quot;&quot;&gt;
+                    &lt;/aop:advisor&gt;
+                &lt;/aop:config&gt;    
+
+    基于注解的声明式事务控制
+        1.使用@Transactional在需要进行事务控制的类或方法上修饰，注解可用的属性与xml配置方式相同
+            （隔离级别isolation超时时间timeout是否只读readonly事务的传播行为propagation）
+        2.注解使用在类上，该类下的所有方法都使用同一套注解参数配置
+        3.注解使用中方法上，不同的方法可以采用不同的事务参数配置
+        4.xml配置文件中要开启事务的注解驱动&lt;tx:annotation-driven transaction-manager=&quot;&quot;/&gt;  
+
+        配置要点
+            平台事务管理器配置（xml方式）  
+            事务通知的配置（@Transactional注解配置）
+            事务直接驱动的配置&lt;tx:annotation-driven/&gt;</code></pre>
+<h2 id="Spring集成web环境"><a href="#Spring集成web环境" class="headerlink" title="Spring集成web环境"></a>Spring集成web环境</h2><pre><code>ApplicationContext应用上下文获取方式
+       应用上下文对象是通过new ClasspathXmlApplicationContext(Spring配置文件)方式获取的，
+    但是每次从容器中获得Bean时都要编写new ClasspathXmlApplicationContext(Spring配置文件)，这样的弊端是配置文件加载多次，
+    应用上下文对象创建多次，影响效率
+       在web项目中，可以使用ServletContextListener监听web应用的启动，在启动时，就加载spring配置文件，创建应用上下文对象
+    ApplicationContext，将其存储在最大的域ServletContext域中，可以在任意位置从域中获取应用上下文ApplicationContext对象   
+
+spring提供获取应用上下文的工具
+    Spring提供了监听器ContextLoaderListener，内部配置加载Spring配置文件，创建应用上下文对象，并存储到ServletContext域中
+    提供客户端工具WebApplicationContextUtils获取上下文对象
+
+    使用：
+        1.在web.xml中配置ContextLoaderListener监听器（pom.xml中导入spring-web坐标） 
+            &lt;!--全局初始化参数--&gt;   
+            &lt;context-param&gt;
+                &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+                &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+            &lt;/context-param&gt;                
+        2.使用WebApplicationContextUtils获取上下文对象ApplicationContext</code></pre>
 
       
 
@@ -1491,7 +837,7 @@ maven工程的聚合
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/ajax/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/03/spring/">展开全文 >></a>
         </p>
       
 
@@ -1521,107 +867,65 @@ maven工程的聚合
 
 
   
-    <article id="post-xml" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-servlet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#xml<br>    1.概念：Extensible Markup Language<br>        *可扩展：标签自定义<br>    2.功能<br>        *存储数据<br>            1.配置文件<br>            2.网络中传输<br>    3.xml与HTML的区别<br>        1.xml标签是自定义的，HTML标签是预定义的<br>        2.xml语法严格，HTML语法松散<br>        3.xml存储数据，HTML展示数据</p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre><code>基本语法：
-    1.xml文档的后缀名.xml
-    2.xml第一行必须定义为文档声明
-    3.xml文档中有且仅有一个根标签
-    4.属性值必须使用引号引起来（单双都可以）
-    5.标签必须正确关闭
-    6.xml标签名称区分大小写
-快速入门：
-    1.文档声明
-        1.格式：&lt;?xml 属性列表 ?&gt;
-        2.属性列表：
-            *version：版本号，必须
-            *encoding：编码方式，告知解析引擎文档的字符集，默认ISO-8859-1
-            *standalone：是否独立
-                取值：yes：不依赖其他文件 no：依赖其他文件
-    2.指令：结合css控制样式
-        &lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;&quot; ?&gt;     
-    3.标签:名称自定义
-        *规则：
-            *可以包含字母、数字以及其他的字符
-            *名称不能以数字或者标点符号开始
-            *名称不能以字母 xml 开始（无论大小写）
-            *名称不能包含空格
-    4.属性：
-        id属性值唯一
-    5.文本：
-        *CDATA区:区域中的数据会被原样展示
-        格式：&lt;![CDATA[ 数据 ]]&gt;
-约束：规定xml文档的书写规则
-        *能够在xml中引入约束文档
-        *能够简单地读懂约束文档
-    *分类：
-        1.DTD：一种简单的约束技术
-        2.Schema：一种复杂的约束技术                    
-    *DTD：
-        *引入DTD文档到xml文档中
-            *内部DTD：约束规则定义在xml文档中
-            *外部DTD：约束规则定义在外部的DTD文件中
-                *本地：&lt;!DOCTYPE 根标签名 SYSTEM &quot;DTD文件的位置&quot;&gt;    
-                *网络：&lt;!DOCTYPE 根标签名 PUBLIC &quot;DTD文件名字&quot; &quot;DTD文件的位置&quot;&gt;
-    *Schema: 
-        *引入：
-            1.填写xml文档的根元素
-            2.引入xsi前缀，xmlns:xsi=&quot;http:www.w3.org/2001/XMLSchema-instance&quot;
-            3.引入xsd文件命名空间 xsi:SchemaLocation=&quot;&quot;           
-            4.为每一个xsd约束声明一个前缀，作为标识 xmlns:前缀名=&quot;&quot;
-解析：操作xml，将文档中的数据读取到内存中
-    *操作xml文档
-        1.解析（读取）：将文档中的数据读取到内存中
-        2.写入：将内存中的数据保存到xml文档中。持久化存储
-    *解析xml的方式：
-        1.DOM：将标记语言文档一次性加载进内存，内存中形成dom树
-            *优点：操作方便，可以对文档进行CURD所有操作
-            *缺点：消耗内存
-        2.SAX：逐行读取，基于事件驱动
-            *优点：不占内存
-            *缺点：只能读取，不能增删改
-    *xml常见的解析器：
-        1.JAXP：sun公司提供，支持dom和sax两种思想
-        2.DOM4J
-        3.Jsoup
-        4.PULL：android操作系统内置的解析器，sax方式
-    *Jsoup：java的HTML解析器。可直接解析某个URL地址、HTML文本内容，提供api，使用dom的操作方法取出和操作数据
-        *步骤：
-            1.导入jar包
-            2.获取Document对象
-            3.获取对应的标签Element对象
-            4.获取数据
-        *对象的使用：
-            1.Jsoup：工具类，可以解析HTML或xml文档，返回Document
-                *parse：解析HTML或xml文档，返回Document
-                    *parse(File in,String charesetName):解析xml或HTML文件
-                    *parse(String html):解析xml或HTML字符串
-                    *parse(URL url, int timeoutMillis):通过网络路径获取指定的HTML或xml对象
-            2.Document：文档对象。代表内存中的dom树
-                *获取Element对象
-                    *getElementById(String id):根据id属性值获取唯一的element对象
-                    *getElementsByTag(String tagName):根据标签名称获取元素对象集合
-                    *getElementsByAttribute(String key):根据属性名称获取元素对象集合
-                    *getElementsByAttributeValue(String key, String value):根据对应的属性名和属性值获取元素对象集合
-            3.Elements：元素Element对象的集合。可以当做ArrayList&lt;Element&gt;使用
-            4.Element：元素对象
-                1.获取子元素对象Element
-                2.获取属性值
-                    *String attr(String key):根据属性名称获取属性值
-                3.获取文本内容
-                    *String text():获取文本内容,纯文本内容
-                    *String html():获取标签体的所有内容（包括子标签的字符串内容）    
-            5.Node：节点对象
-                *Document和Element父类 
-        *快捷查询方式
-            *selector:选择器
-                Elements  select(String cssQuery)
-                    参考selector类中定义的语法
-            *XPath：        </code></pre>
+        <h2 id="Servlet-server-applet"><a href="#Servlet-server-applet" class="headerlink" title="Servlet server applet"></a>Servlet server applet</h2><pre><code>*概念：运行在服务器端的小程序
+    *Servlet是一个接口，定义java类被浏览器访问到（Tomcat识别）的规则
+    *自定义类实现servlet接口，复写方法
+*入门：
+    1.创建javaEE项目
+    2.定义一个类，实现servlet接口
+    3.实现接口中的抽象方法
+    4.配置servlet        
+*执行原理   
+    1.当服务器接收到客户端浏览器的请求后，会解析请求的URL路径，获取访问的Servlet的资源路径
+    2.查找web.xml文件，是否有对应的&lt;url-pattern&gt;标签体内容
+    3.如果有，则再找到对应的&lt;servlet-class&gt;全类名
+    4.Tomcat将字节码文件加载进内存，并创建对象
+    5.调用方法 
+*生命周期    
+    1.被创建：执行init方法，只执行一次
+        *默认情况下，第一次访问时，servlet被创建
+        *可以配置执行servlet的创建时机
+            *在&lt;servlet&gt;标签下配置
+                1.第一次被访问时
+                    *&lt;load-on-startup&gt;的值为负数
+                2.服务器启动时
+                    *&lt;load-on-startup&gt;的值为0或正整数  
+        *init方法只存在一个对象，Servlet是单例的 
+            *多个用户同时访问时，可能存在线程安全问题
+            *解决：尽量不在servlet中定义成员变量。即使定义了，也不要对其修改值             
+    2.提供服务：执行service方法，执行多次
+        *每次访问servlet时，service方法都会被调用一次
+    3.被销毁：执行destroy方法，只执行一次
+        *Servlet被销毁时执行。服务器关闭时，Servlet被销毁
+        *只有服务器正常关闭时，才会执行destroy方法
+        *destroy方法在Servlet被销毁之前执行，一般用于释放资源
+*Servlet3.0
+    *支持注解配置，可以不使用web.xml了
+    *步骤：
+        1. 创建JavaEE项目，选择Servlet的版本3.0以上，可以不创建web.xml
+        2. 定义一个类，实现Servlet接口
+        3. 复写方法
+        4. 在类上使用@WebServlet注解，进行配置
+            *@WebServlet(&quot;资源路径&quot;)  
+*Servlet体系结构
+    Servlet --接口 --&gt; GenericServlet --抽象类 --&gt; HTTPServlet --抽象类
+    *GenericServlet：将Servlet接口中的其他方法默认空实现，只将service()方法抽象
+        定义Servlet类时，可以继承GenericServlet。实现service方法   
+    *HttpServlet：对http协议的一种封装，简化操作
+        1.定义类继承httpServlet
+        2.复写doGet/doPost方法
+*Servlet相关配置                          
+    1.urlPartten：Servlet访问路径
+        1.一个Servlet可以定义多个访问路径：@WebServlet(&#123;&quot;/xxx&quot;,&quot;/xxx&quot;,&quot;/xxx&quot;,&quot;/xxx&quot;&#125;)
+        2.路径定义规则：
+            1./xxx
+            2./xxx/xxx:多层路径，目录结构
+            3.*.do</code></pre>
 
       
 
@@ -1634,7 +938,664 @@ maven工程的聚合
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/xml/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/03/servlet/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><pre><code>*redis.windows.conf:配置文件
+*redis-cli.exe:redis的客户端
+*redis-server.exe:redis服务器端
+1.命令操作
+    1. redis的数据结构
+        redis存储的是：key，value格式的数据，其中key都是字符串，value有5中不同的数据结构
+            *value的数据结构：
+                1.字符串类型 String
+                2.哈希类型 hash    ： map格式
+                3.列表类型 list    ： linkedlist集合
+                4.有序集合类型 sortedset
+
+    2. 字符串类型 String
+        1. 存储：set key value
+        2. 获取：get key
+        3. 删除：del key
+    3. 哈希类型 hash
+        1. 存储：hset key field value
+        2. 获取：
+            1. hget key field：获取指定的filed对应的值
+            2. hgetall key：获取所有的field和value
+        3. 删除：hdel key field
+    4. 列表类型 list：可以添加一个元素到列表的头部(左边)或者尾部(右边)
+        1. 添加：
+            1.  lpush key value ： 将元素加入到列表左边
+            2.  rpush key value ： 将元素加入到列表右边
+        2. 获取：lrange key start end ： 范围获取        0 -1获取所有
+        3. 删除：
+            1. lpop key ： 删除列表最左边的元素，并将元素返回
+            2. rpop key ： 删除列表最右边的元素，并将元素返回
+    5. 集合类型set ：不允许重复元素
+        1. 存储：sadd key value
+        2. 获取：smembers key ： 获取set集合中所有元素
+        3. 删除：srem key value ： 删除set集合中的某个元素
+    6. 有序集合类型 sortedset ： 不允许重复元素，且元素有序
+        1. 存储：zadd key score value
+        2. 获取：zrange key start end         0 -1获取所有 withsocore 查看分数
+        3. 删除：zrem key value
+    7. 通用命令
+        1. keys * ： 查询所有的键
+        2. type key ： 获取键对应的value的类型
+        3. del key ： 删除指定的key value
+
+2. 持久化
+    1. redis是一个内存数据库，当redis服务器重启，或者电脑重启，数据会丢失，可以将redis内存中的数据持久化保存到硬盘的文件中
+    2. redis持久化机制
+        1. RDB：默认方式，不需要进行配置，默认
+            * 在一定的间隔时间中，检测key的变化情况，持久化数据
+                1. 编辑redis.windwos.conf文件
+                    save 900 1
+                    save 300 10
+                    save 60 10000
+                2. 重新启动redis服务器，并指定配置文件名称
+                    * 在文件夹中打开命令行输入：redis-server.exe redis.windows.conf
+        2. AOF：日志记录的方式，可以记录每一条命令的操作。可以每一次命令操作后，持久化数据
+            1. 编辑redis.windwos.conf文件
+                appendonly no (关闭AOF) --&gt;appendonly yes (开启AOF)
+
+                # appendfsync always ： 每一次操作都进行持久化
+                appendfsync everysec ： 每隔一秒进行一次持久化
+                # appendfsync  no     ： 不进行持久化 </code></pre>
+<h1 id="jedis"><a href="#jedis" class="headerlink" title="jedis"></a>jedis</h1><pre><code>jedis:java操作redis数据库的工具
+* 使用步骤：
+     1. 下载jedis的jar包
+     2. 使用
+         1. 获取连接：Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
+         2. 操作：jedis.set(&quot;xxx&quot;,&quot;xxx&quot;);
+         3. 关闭连接：jedis.close();</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/03/Redis/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-proxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#代理模式<br>    当一个对象不能直接使用，可以在客户端和目标对象直接创建一个中介，这个中介就是代理。<br>    使用代理模式的作用<br>        1.功能增强:在原有的功能上，增加额外的功能，新增加的功能叫做功能增强<br>        2.控制访问:代理类不让直接访问目标。 如商家不让用户直接访问厂家</p>
+<pre><code>实现代理的方式
+    1.静态代理:
+        优点:
+            1)实现简单   
+            2)容易理解
+        缺点:
+            1)当目标类增加，代理类可能也需要成倍的增加，代理类数量过多。
+            2)当增加了接口中的功能时，或者修改了功能时，会影响众多的实现类，影响比较多
+
+        实现步骤:
+            定义一个接口，定义功能
+            创建一个类，实现接口
+            创建一个代理类，实现接口，完成功能增强
+            创建一个客户端类，调用代理类完成功能 
+
+        代理类完成的功能:
+            1.目标类中方法的调用
+            2.功能增强
+    2.动态代理
+        使用jdk的反射机制，创建对象的能力，创建的是代理类的对象。不是自己创建的类文件，不需要写java文件
+        动态:程序执行时，调用jdk提供的方法创建代理类的对象       
+
+        特点:不用创建类文件，代理的目标类是活动的，可设置的 
+        实现方式:
+            1.jdk动态代理:
+                使用java反射包中的类和接口实现动态代理的功能。
+                反射包java.lang.reflect,里面有三个类:InvocationHandler,Method.Proxy
+            2.cglib动态代理:
+                cglib是第三方的工具库，创建代理对象                                          
+                cglib的原理是继承，cglib通过继承目标类，创建它的子类，在子类中重写父类中同名的方法，实现功能的修改
+                cglib是通过继承，重写方法，因此目标类不能是final的，方法也不能是final的
+    jdk动态代理
+        1.反射，Method类，类中的方法。通过Method可以执行某个方法
+        2.jdk动态代理的实现:
+            反射包java.lang.reflect,里面有三个类:InvocationHandler,Method.Proxy
+            1.InvocationHandler接口(调用处理器):只有一个invoke()方法;这个接口表示代理要干什么
+                invoke():表示代理对象要执行的功能代码
+                方法原型:
+                    参数:
+                        Object proxy:jdk创建的代理对象，无需赋值
+                        Method method:目标类中的方法，jdk提供method对象
+                        Object[] args:目标类中方法的参数，jdk提供
+                    public Object invoke(Object proxy, Method method, Object[] args)                        
+            2.Method类:
+                作用:通过Method可以执行某个目标类的方法，Method.invoke();
+                    method.invoke(目标对象,方法的参数)        
+            3.Proxy类:核心的对象，创建代理对象
+                方法: 静态方法getProxyInstance()        
+                参数:
+                    ClassLoader loader:类加载器，负责向内存中加载对象。使用反射获取对象的ClassLoader
+                    Class&lt;?&gt;[] interfaces:接口，目标对象实现的接口，反射获取
+                    InvocationHandler h:自己写的代理类要完成的功能
+                返回值:代理对象    
+                public static Object newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h)
+        3.实现动态代理的步骤:
+            1.创建接口，定义目标类要完成的功能
+            2.创建目标类实现接口
+            3.创建InvocationHandler接口的实现类，在invoke方法中完成代理类的功能
+                1.调用方法
+                2.增强功能
+            4.使用Proxy类的静态方法，创建代理对象，并把返回值转为接口类型。  </code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/03/proxy/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#Mybatis<br>    原始jdbc操作分析<br>        原始jdbc存在的问题：<br>            1.数据库连接创建、释放频繁造成系统资源浪费影响系统性能<br>            2.SQL语句在代码中硬编码，造成代码不便于维护，实际应用SQL变化的可能较大，SQL变动需要改变java代码<br>            3.查询操作时，需要手动将结果集中的数据手动封装到实体中。插入操作时，需要手动将实体的数据设置到SQL<br>            语句的站位符位置<br>        解决方案：<br>            1.使用数据库连接池初始化连接资源<br>            2.将SQL语句抽取到xml配置文件中<br>            3.使用反射、内省等底层技术，自动将实体与表进行属性与字段的自动映射<br>    Mybatis：<br>        1.优秀的基于java的持久层框架，内部封装jdbc，只需要关注SQL语句本身，不需要处理加载驱动、创建连接、创建statement的繁杂过程<br>        2.mybatis通过xml或注解的方式将要执行的各种statement配置起来，通过java对象和statement中的SQL的动态参数进行映射生成最终执行<br>        的SQL语句<br>        3.mybatis框架执行SQL并将结果映射为java对象 并返回。采用ORM思想解决实体和数据库映射的问题。对jdbc进行封装，屏蔽jdbc api 底层访问<br>        细节，不用与jdbc api打交道，就可以完成数据库的持久化操作。  </p>
+<pre><code>mybatis快速入门：
+    1.添加Mybatis坐标
+    2.创建数据库表（user表）
+    3.创建实体类（user实体类）
+    4.编写映射文件（UserMapping.xml）          
+    5.编写核心文件（SqlMapConfig.xml）
+    6.编写测试类:(更新操作需要提交事务)
+        //加载核心配置文件
+        InputStream resourceAsStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+        //获取sqlSession工厂对象
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        //获取sqlSession对象
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        //执行SQL语句
+        List&lt;User&gt; userList = sqlSession.selectList(&quot;userMapper.findAll&quot;);
+        //释放资源
+        sqlSession.close();
+
+        *插入操作
+            插入语句使用insert标签
+            在映射文件中使用parameterType属性指定要插入的数据类型
+            Sql语句中使用#&#123;实体属性名&#125;方式引用实体中的属性值
+            插入操作使用的api是sqlSession.insert(&quot;命名空间.id&quot;,实体对象)
+            插入操作涉及数据库数据变化，要使用sqlSession对象显示的提交事务，即sqlSession.commit()
+        *修改操作
+            update标签
+            api：sqlSession.update(&quot;命名空间.id&quot;,实体对象);    
+        *删除操作
+            delete标签
+            SQL语句中使用#&#123;任意字符串&#125;方式引用传递的单个参数 &lt;!--#&#123;id&#125; id可以随便命名 标签内不能使用/**/注释--&gt;
+            api：sqlSession.delete(&quot;命名空间.id&quot;,实体对象);    
+
+mybatis映射文件
+    1.映射文件DTD约束头
+        &lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+    2.mapper
+        根标签
+        &lt;mapper namespace=&quot;&quot;(命名空间，与下面语句的id一起组成查询的标识)&gt;    
+            &lt;select id=&quot;&quot;(与命名空间组成查询标识) resultType=&quot;&quot;(查询结果对应的实体类型)&gt;
+                select * from xxx（要执行的sql语句）
+            &lt;/select&gt;
+            &lt;insert&gt;&lt;/insert&gt;
+            &lt;update&gt;&lt;/update&gt;
+            &lt;delete&gt;&lt;/delete&gt;
+        &lt;/mapper&gt;   
+    *深入：
+        1.动态SQL语句
+            if标签：根据实体类的不同取值，使用不同的SQL语句查询，通过if标签判断是否作为查询条件查询。
+            where相当于SQL语句中where 1=1
+            &lt;where&gt;                
+                &lt;if test=&quot;判断条件&quot;&gt;
+
+                &lt;/if&gt;
+            &lt;/where&gt;
+            foreach标签: 循环执行SQL的拼接操作
+                select * from xx where 条件 in() 相当于 where 条件 or 条件                
+                &lt;where&gt;
+                    &lt;foreach collection=&quot;参数集合/数组&quot; open=&quot;以什么开始&quot; close=&quot;以什么结束&quot; item=&quot;项，变量&quot; separator=&quot;分隔符&quot;&gt;
+                    &lt;/foreach&gt;
+                &lt;/where&gt;
+        2.SQL片段抽取
+            将重复的SQL语句使用&lt;sql&gt;标签提取出来，使用&lt;include&gt;引用
+            &lt;sql id=&quot;&quot;&gt;sql语句&lt;/sql&gt;        
+            &lt;include refid=&quot;id&quot;/&gt;
+mybatis核心配置文件
+    1.DTD约束头
+        &lt;!DOCTYPE configuration PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;        
+    2.核心配置文件层级关系
+        configuration 配置
+            properties 属性
+            settings   设置
+            typeAliases类型别名
+            typeHandlers类型处理器
+            objectFactory对象工厂
+            plugins     插件
+            environments 环境
+                environment 环境变量
+                    transactionManager 事务管理器
+                    DataSource 数据源
+            databaseIDProvider 数据库厂商标识
+            mappers 映射器 
+    3.environments标签
+        数据库环境配置，支持多环境配置
+        &lt;environments default=&quot;id&quot;(指定默认的环境名称)&gt;                            
+            &lt;environment id=&quot;&quot;(指定当前环境的名称)&gt;
+                &lt;transactionManager type=&quot;JDBC&quot;/&gt; 指定事务管理类型为JDBC
+                两种类型：
+                    JDBC:直接使用jdbc的提交和回滚设置，依赖于从数据源得到的连接来管理事务作用域
+                    MANAGED:容器管理事务的整个生命周期。默认情况下会关闭连接，使用closeConnection属性设置为false来阻止默认关闭的行为
+                &lt;dataSource type=&quot;POOLED&quot;&gt;指定当前数据源类型是连接池
+                三种类型：
+                    UNPOOLED:每次被请求时打开和关闭连接
+                    POOLED:利用“池”的概念将JDBC连接对象组织起来
+                    JNDI:这个数据源的实现是为了能在 EJB或应用服务器这类容器中使用，容器可以集中或在外部配置数据源，然后放置一个JNDI上下文的引用
+
+                    &lt;property&gt;数据源配置的基本参数
+                &lt;/dataSource&gt;
+            &lt;/environment&gt;
+        &lt;/environments&gt;    
+    4.mapper标签
+        加载映射文件
+        使用相对于类路径的资源引用，&lt;mapper resource=&quot;com\mybatis\mapper\UserMapper.xml&quot;/&gt;
+        使用完全限定资源定位符(URL):&lt;mapper url=&quot;G:\Spring\mybatis\src\main\resources\com\mybatis\mapper\UserMapper.xml&quot;/&gt;        
+        使用映射器接口实现类的完全限定类名 &lt;mapper class=&quot;com.mybatis.domain.User&quot;/&gt;                    
+        将包内的映射器接口实现全部注册为映射器 &lt;package name=&quot;com.mybatis.domain&quot;/&gt;
+    5.properties标签
+        &lt;!--加载外部properties文件 写在最上面--&gt;
+        &lt;properties resource=&quot;druid.properties&quot;&gt;&lt;/properties&gt;    
+    6.typeAliases标签
+        类型别名是为java类型设置的一个短的名字
+        mybatis中默认配置
+            String  --&gt; string
+            Long    --&gt; long
+            Integer --&gt; int
+            Double  --&gt; double
+            Boolean --&gt; boolean
+        原来类型配置：
+            select id=&quot;findAll&quot; resultType=&quot;com.mybatis.domain.User&quot;&gt;
+                select * from user;
+            &lt;/select&gt;  
+        配置typeAliases，起别名
+            //核心配置文件中配置
+            &lt;typeAliases&gt;      
+                &lt;typeAlias type=&quot;com.mybatis.domain.User&quot; alias=&quot;user&quot;&gt;&lt;/typeAlias&gt;      
+            &lt;/typeAliases&gt;      
+            //映射文件中配置
+            &lt;select id=&quot;findAll&quot; resultType=&quot;user&quot;&gt;
+                sql语句
+            &lt;/select&gt;
+    *深入
+        1.typeHandlers标签
+            mybatis预处理语句中设置参数或者从结果集中取值时，都要使用类型处理器将获取的值用合适的方式转换成java类型
+            类型处理器               java类型                      jdbc类型
+            BooleanTypeHandler     java.lang.Boolean.boolean    数据库兼容的BOOLEAN
+            ByteTypeHandler        java.lang.Byte.byte          数据库兼容的NUMERIC或BYTE
+            ....
+            重写类型处理器或创建自己的类型处理器处理不支持或非标准的类型，具体做法：实现org.apache.ibatis.type.TypeHandler接口
+            或继承一个便利的类org.apache.ibatis.type.BaseTypeHandler,然后选择性的将它映射到一个JDBC类型
+            开发步骤：
+                1.定义转换类继承类BaseTypeHandler&lt;T&gt;
+                2.覆盖4个未实现的方法，
+                    其中setNonNullParameter为java程序设置数据到数据库的回调方法
+                    getNullableResult为查询时mysql的字符串类型转换成java的Type类型的方法
+                3.在MyBatis核心配置文件中进行注册
+                4.测试转换是否正确
+        2.plugins（插件）标签        
+            MyBatis可以使用第三方插件进行功能扩展，分页助手PageHelper是将分页的复杂操作进行封装，使用简单的方式获取分页的相关数据
+            开发步骤：
+                1.导入通用PageHelper的坐标
+                2.在mybatis核心配置文件中配置PageHelper插件
+                    &lt;!--配置分页助手插件--&gt;
+                    &lt;plugins&gt;
+                        &lt;plugin interceptor=&quot;com.github.pagehelper.PageHelper&quot;&gt;
+                            &lt;!--指定方言--&gt;
+                            &lt;property name=&quot;dialect&quot; value=&quot;mysql&quot;/&gt;
+                        &lt;/plugin&gt;
+                    &lt;/plugins&gt;
+                3.测试分页数据获取
+
+                方法：
+                //设置分页相关参数
+                PageHelper.startPage(当前页,显示条数);
+                //获取分页信息
+                PageInfo&lt;User&gt; pageInfo = new PageInfo&lt;&gt;(all);
+                &quot;当前页:&quot; pageInfo.getPageNum()
+                &quot;条数:&quot;  pageInfo.getPageSize()
+                &quot;总条数:&quot;  pageInfo.getTotal()
+                &quot;总页数:&quot;  pageInfo.getPages()
+                &quot;上一页:&quot;  pageInfo.getPrePage()
+                &quot;下一页:&quot;  pageInfo.getNextPage()
+                &quot;是否为第一页:&quot;  pageInfo.isIsFirstPage()
+                &quot;是否为最后一页:&quot;  pageInfo.isIsLastPage()
+
+mybatis相应API
+    1.sqlSession工厂构建器SqlSessionFactoryBuilder
+        常用API：SqlSessionFactory build(InputStream inputStream)
+        通过加载mybatis的核心文件的输入流的形式构建一个SqlSessionFactory对象
+        InputStream is = Resources.getResourceAsStream(&quot;文件名称&quot;);
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory factory = builder.build(inputStream);    
+        Resources工具类，在org.apache.ibatis.io包中。Resources类可以从类路径、文件系统或web URL中加载资源文件。        
+    2.SqlSession工厂对象SqlSessionFactory
+        SqlSessionFactory有多个方法创建sqlSession实例。常用：
+            openSession()       默认开启一个事务，但不会自动提交。需要手动提交，更新操作数据才会持久化到数据库中
+            openSession(Boolean autoCommit) 参数为是否自动提交，ture不需要手动提交事务    
+    3.SqlSession会话对象
+        执行语句的方法：
+            &lt;T&gt; T selectOne(String statement, Object parameter)
+            &lt;E&gt; List&lt;E&gt; selectList(String statement, Object Parameter)        
+            int insert(String statement, Object Parameter)
+            int update(String statement, Object Parameter)
+            int delete(String statement, Object Parameter)
+        操作事务方法：
+            void commit()
+            void rollback()  </code></pre>
+<p>##Mybatis的Dao层实现<br>    1.传统方式<br>        加载配置文件，创建sqlSessionfactoryBuilder对象–&gt;获取SqlSessionFactory对象–&gt;SqlSession对象–&gt;执行SQL语句<br>    2.代理开发方式<br>        mapper接口开发方法只需要编写mapper接口（相当于Dao接口）有mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法同Dao<br>        接口实现类方法<br>        mapper接口开发规范：<br>            mapper.xml文件中的namespace与mapper接口的全限定名相同<br>            mapper接口方法名和mapper.xml中定义的每个statement的id相同<br>            mapper接口方法的输入参数类型和mapper.xml中定义的每个sql的parameterType的类型相同<br>            mapper接口方法的输出参数类型和mapper.xml中定义的每个sql的resultType的类型相同  </p>
+<pre><code>    步骤：
+        配置文件：
+            namespace与接口的全限定名一致，增删改查的id与接口方法名一致，参数与返回值与方法的一致
+        加载配置文件--&gt;创建SqlSessionFactoryBuilder对象--&gt;获取SqlSessionFactory对象--&gt;获取SQLSession对象
+        --&gt;sqlsession.getMapper(xxx.class)--&gt;调用接口方法        </code></pre>
+<p>##MyBatis多表操作<br>    使用resultMap标签，手动指定字段与实体属性的映射关系<br>                <!--column：数据表字段名称--><br>                <!--property：实体属性名称--><br>                <!--主键--><br>                <id column="uid" property="id"></id><br>                <!--普通属性--><br>                <result column="orderTime" property="orderTime"></result><br>                <!--匹配一个属性
+                    property：当前实体中的属性名称
+                    JavaType：当前实体中属性的类型
+                --><br>                <association property="user" javaType="user"><br>                <!--配置集合信息
+                    property：集合名称
+                    ofType：当前集合中的数据类型
+                --><br>                <collection property="orderList" ofType="order"></collection><br>    *配置方式：<br>        一对一配置：使用<resultMap>配置     内部引入其他属性可以使用<association>配置<br>        一对多配置：使用<resultMap>+<collection>配置<br>        多对多配置：使用<resultMap>+<collection>配置<br>##MyBatis注解开发<br>    1.常用注解<br>        @Insert:实现新增<br>        @Update:实现更新<br>        @Delete:实现删除<br>        @Select:实现查询<br>        @Result:实现结果集封装<br>        @Results:可以和@Result一起使用，封装多个结果集<br>        @One:实现一对一结果集封装<br>        @Many:实现一对多结果集封装<br>    2.实现复杂映射开发<br>        在xml中实现复杂关系映射，可以使用<resultMap>实现，<br>        注解可以使用@Results注解，@Result注解，@One注解，@Many注解组合完成复杂关系配置</p>
+<pre><code>    @Results                代替&lt;resultMap&gt;标签，注解中可以使用单个@Result注解，也可以使用@Result集合
+                            格式：@Results(&#123;@Result(),@Result()&#125;)或@Results(&#123;@Result())            
+    @Result                 代替&lt;id&gt;标签和&lt;result&gt;标签
+                            属性：
+                                column：数据库的列名
+                                property：需要配置的属性名
+                                one：需要使用的@One注解(@Result(one=@One)()))
+                                many:需要使用的@Many注解(@Result(many=@Many)())
+    @One(一对一)             代替&lt;assocation&gt;标签，多表查询的关键，注解中用来指定子查询返回单一对象
+                            属性：
+                                select：指定用来多表查询的sqlMapper
+                            格式：
+                                @Reslut(column=&quot;&quot;,property=&quot;&quot;.one=@One(select=&quot;&quot;))
+    @Many(一对多)            代替&lt;collection&gt;标签，注解中指定子查询返回对象集合
+                            格式：
+                                @Result(property=&quot;&quot;,column=&quot;&quot;,many=@Many(select=&quot;&quot;))                                                  
+
+    一对一两种配置：
+        /*@Results(&#123;
+                @Result(column = &quot;oid&quot;, property = &quot;id&quot;),
+                @Result(column = &quot;orderTime&quot;, property = &quot;orderTime&quot;),
+                @Result(column = &quot;total&quot;, property = &quot;total&quot;),
+                @Result(column = &quot;uid&quot;, property = &quot;user.id&quot;),
+                @Result(column = &quot;username&quot;, property = &quot;user.username&quot;),
+                @Result(column = &quot;password&quot;, property = &quot;user.password&quot;),
+                @Result(column = &quot;birthday&quot;, property = &quot;user.birthday&quot;, typeHandler = DateHandler.class),
+        &#125;)*/
+        @Results(&#123;
+                @Result(column = &quot;oid&quot;, property = &quot;id&quot;),
+                @Result(column = &quot;orderTime&quot;, property = &quot;orderTime&quot;),
+                @Result(column = &quot;total&quot;, property = &quot;total&quot;),
+                @Result(
+                        property = &quot;user&quot;,//要封装的属性名称
+                        column = &quot;uid&quot;,//根据那个字段查询
+                        javaType = User.class,
+                        one = @One(select = &quot;com.mybatis_anno.mapper.UserMapper.findById&quot;)
+                )
+        &#125;)              </code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/03/Mybatis/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/27/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/27/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+  	<time datetime="2020-10-27T14:16:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h2><p> 内容</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p> <a target="_blank" rel="noopener" href="http://www.codesheep.cn/">www.codesheep.cn</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/27/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/27/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/27/hello-world/" class="archive-article-date">
+  	<time datetime="2020-10-27T08:50:54.399Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/27/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -1666,7 +1627,7 @@ maven工程的聚合
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
 
