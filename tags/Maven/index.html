@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>景</title>
+  <title>Tag: -Maven | 景</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="景">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/tags/Maven/index.html">
 <meta property="og:site_name" content="景">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="景">
@@ -149,104 +149,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-maven学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/11/20/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-11-20T07:34:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-20</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/20/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">maven学习笔记</a>
+      <a class="archive-article-title" href="/2020/11/20/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">maven学习笔记</a>
     </h1>
   
 
-        
-        <a href="/2020/11/20/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-11-20T07:34:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Maven：项目管理工具"><a href="#Maven：项目管理工具" class="headerlink" title="Maven：项目管理工具"></a>Maven：项目管理工具</h1><h2 id="1-项目管理工具"><a href="#1-项目管理工具" class="headerlink" title="1.  项目管理工具"></a>1.  项目管理工具</h2><pre><code> 主要作用：为项目开发阶段对Java项目进行依赖管理和项目构建
- 依赖管理：对jar的管理，通过导入Maven坐标，相当于将仓库中的jar包导入当前项目中
- 项目构建：通过maven的命令完成项目从清理、编译、测试、报告、打包，部署这个过程
- 清理 -&gt; 编译 -&gt; 测试 -&gt; 报告 -&gt; 打包 -&gt; 部署</code></pre>
-<h2 id="2-仓库类型"><a href="#2-仓库类型" class="headerlink" title="2. 仓库类型"></a>2. 仓库类型</h2><pre><code> 1.本地仓库
- 2.远程仓库
-     1.maven中央仓库 http://repo2.maven.org/maven2/
-     2.maven私服（公司局域网内仓库，自己搭建）
-     3.其他公共远程仓库 （Apache：http://repo.maven.org/maven2/）</code></pre>
-<h2 id="3-maven常用命令"><a href="#3-maven常用命令" class="headerlink" title="3. maven常用命令"></a>3. maven常用命令</h2><pre><code> clean:清理
- compile:编译
- test:测试
- package:打包
- install:安装</code></pre>
-<h2 id="4-maven依赖范围"><a href="#4-maven依赖范围" class="headerlink" title="4. maven依赖范围"></a>4. maven依赖范围</h2><p><img src="C:\Users\jing\Desktop\笔记\maven依赖范围.png"></p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">依赖范围					对于编译classpath有效		对于测试classpath有效		对于运行时classpath有效</span><br><span class="line">	compile						Y							Y						Y	</span><br><span class="line">	test						-							Y						-</span><br><span class="line">	provided					Y							Y						-</span><br><span class="line">	runtime						-							Y						Y</span><br><span class="line">	system						Y							Y						-</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-依赖冲突"><a href="#5-依赖冲突" class="headerlink" title="5. 依赖冲突"></a>5. 依赖冲突</h2><pre><code> 依赖传递版本不同造成依赖冲突。
- *解决依赖冲突：
-     1.使用maven提供的依赖调解原则
-         第一声明优先原则：
-             pom文件定义依赖，以先声明的依赖为准。根据坐标导入的顺序来确定最终使用哪个传递过来的依赖
-         路径近者优先原则：
-             pom文件定义依赖，以路径近者为准
-            pom文件中直接定义的依赖优先于传递过来的依赖
-    2.排除依赖
-        使用exclusions标签将传递过来的依赖排除出去</code></pre>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    指定不需要的依赖</span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-beans<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>     3.锁定版本
-         采用直接锁定版本的方法确定依赖jar包的版本，版本锁定后不考虑依赖的生命顺序或依赖的路径，以锁定的版本为准添加到工程中。
-         使用方式：
-             1.在dependencyManagement标签中锁定依赖的版本</code></pre>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">		<span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-beans<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--*pom文件中使用dependencyManagement标签进行依赖jar的版本锁定，不会真正将jar包导入到项目中，只是对jar的版本锁定，项目中使用的jar包还需要在dependencies标签中声明 --&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>             2.在dependencies标签中声明需要导入的maven坐标</code></pre>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--*jar包版本已经锁定不需要再指定version，只需要导入groupID和artifactID --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-beans<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>				               </span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-maven构建SSM工程案例"><a href="#6-maven构建SSM工程案例" class="headerlink" title="6. maven构建SSM工程案例"></a>6. maven构建SSM工程案例</h2><pre><code> 1.配置数据库环境
- 2.maven项目构建
-     1.创建maven web项目
-         选择创建web项目时添加archetypeCatalog value:internal加快项目创建速             度
-     2.配置pom.xml
-     3.实现spring+mybatis整合
-         创建pojo类
-         持久层DAO接口编写
-         业务层service编写
-         spring配置文件ApplicationContext-dao.xml编写
-         spring配置文件ApplicationContext-service.xml编写
-     4.spring-mvc配置
-         controller编写
-         springmvc.xml编写
-             1.组件扫描
-             2.视图解析器
-         jsp页面编写
-         配置web.xml文件
-             1.初始化配置文件
-             2.前端控制器
-             3.spring监听</code></pre>
-<h2 id="7-分模块构建maven工程分析"><a href="#7-分模块构建maven工程分析" class="headerlink" title="7. 分模块构建maven工程分析"></a>7. 分模块构建maven工程分析</h2><pre><code> 拆分方式：
-     1.按照**业务模块**进行拆分，每个模块拆分成一个maven工程；如：用户模块、订单模块、购物车模块
-     2.按照**层**进行拆分。如：持久层、业务层、表现层
- maven工程的继承
-     子工程继承父工程之后，可以使用父工程引入的依赖，目的是为了*消除重复代码*
-     父工程的打包方式必须为pom，子工程通过parent标签进行父工程的继承
- maven工程的聚合
-     使用&lt;modules&gt;标签将其他maven工程聚合到一起，进行统一操作
-     &lt;modules&gt;
-         &lt;module&gt;&lt;/module&gt;
-     &lt;/modules&gt;</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -258,181 +188,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/20/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-vue-js学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/19/vue-js%E5%AD%A6%E4%B9%A0/">vue.js学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/19/vue-js%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-11-19T09:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="插值操作"><a href="#插值操作" class="headerlink" title="插值操作"></a>插值操作</h2><pre><code>&#123;&#123;message&#125;&#125;
-v-once:(后面不用跟表达式)表示元素和组件只渲染一次，不会随着数据的改变而改变
-v-html:</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/19/vue-js%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/27/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/27/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-10-27T14:16:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h2><p> 内容</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p> <a target="_blank" rel="noopener" href="http://www.codesheep.cn/">www.codesheep.cn</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/27/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -454,10 +222,10 @@ v-html:</code></pre>
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
